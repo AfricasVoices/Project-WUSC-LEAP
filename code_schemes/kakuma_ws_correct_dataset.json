@@ -61,45 +61,45 @@
     {
       "CodeID": "code-18a80f1b",
       "CodeType": "Normal",
-      "DisplayText": "kakuma leap s01e01",
-      "StringValue": "kakuma_leap_s01e01",
+      "DisplayText": "leap kakuma s01e01",
+      "StringValue": "leap_kakuma_s01e01",
       "NumericValue": 6,
       "VisibleInCoda": true,
       "MatchValues": [
-        "kakuma leap s01e01"
+        "leap kakuma s01e01"
       ]
     },
     {
       "CodeID": "code-b7e78e4e",
       "CodeType": "Normal",
-      "DisplayText": "kakuma leap s01e02",
-      "StringValue": "kakuma_leap_s01e02",
+      "DisplayText": "leap kakuma s01e02",
+      "StringValue": "leap_kakuma_s01e02",
       "NumericValue": 7,
       "VisibleInCoda": true,
       "MatchValues": [
-        "kakuma leap s01e02"
+        "leap kakuma s01e02"
       ]
     },
     {
       "CodeID": "code-18ef9e65",
       "CodeType": "Normal",
-      "DisplayText": "kakuma leap s01e03",
-      "StringValue": "kakuma_leap_s01e03",
+      "DisplayText": "leap kakuma s01e03",
+      "StringValue": "leap_kakuma_s01e03",
       "NumericValue": 8,
       "VisibleInCoda": true,
       "MatchValues": [
-        "kakuma leap s01e03"
+        "leap kakuma s01e03"
       ]
     },
     {
       "CodeID": "code-1f005d00",
       "CodeType": "Normal",
-      "DisplayText": "kakuma leap s01e04",
-      "StringValue": "kakuma_leap_s01e04",
+      "DisplayText": "leap kakuma s01e04",
+      "StringValue": "leap_kakuma_s01e04",
       "NumericValue": 9,
       "VisibleInCoda": true,
       "MatchValues": [
-        "kakuma leap s01e04"
+        "leap kakuma s01e04"
       ]
     },
     {
@@ -110,7 +110,7 @@
       "NumericValue": 10,
       "VisibleInCoda": true,
       "MatchValues": [
-        "kakuma leap s01e05"
+        "leap kakuma s01e05"
       ]
     },
     {
