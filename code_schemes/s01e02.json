@@ -192,6 +192,24 @@
       "NumericValue": -100140,
       "StringValue": "impact",
       "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-A-a542fb02",
+      "CodeType": "Meta",
+      "MetaCode": "accountability",
+      "DisplayText": "meta: accountability",
+      "NumericValue": -100150,
+      "StringValue": "accountability",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-SG-e1f8b4bd",
+      "CodeType": "Meta",
+      "MetaCode": "safeguarding",
+      "DisplayText": "meta: safeguarding",
+      "NumericValue": -100160,
+      "StringValue": "safeguarding",
+      "VisibleInCoda": true
     }
   ]
 }

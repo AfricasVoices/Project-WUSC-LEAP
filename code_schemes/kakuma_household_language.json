@@ -1,6 +1,6 @@
 {
   "SchemeID": "Scheme-eccc5eda",
-  "Name": "Kakuma household language",
+  "Name": "Kakuma Household Language",
   "Version": "0.0.0.1",
   "Codes": [
     {
@@ -209,6 +209,24 @@
       "DisplayText": "participation incentive",
       "NumericValue": -100060,
       "StringValue": "participation_incentive",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-A-a542fb02",
+      "CodeType": "Meta",
+      "MetaCode": "accountability",
+      "DisplayText": "meta: accountability",
+      "NumericValue": -100150,
+      "StringValue": "accountability",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-SG-e1f8b4bd",
+      "CodeType": "Meta",
+      "MetaCode": "safeguarding",
+      "DisplayText": "meta: safeguarding",
+      "NumericValue": -100160,
+      "StringValue": "safeguarding",
       "VisibleInCoda": true
     }
   ]
