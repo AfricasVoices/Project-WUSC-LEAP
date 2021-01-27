@@ -21,7 +21,7 @@
       "DisplayText": "woman",
       "NumericValue": 2,
       "StringValue" : "woman",
-      "Shortcut": "f",
+      "Shortcut": "w",
       "VisibleInCoda": true,
       "MatchValues" : [
         "female"
