@@ -16,11 +16,11 @@ DATA_ROOT=$3
 
 
 DATASETS=(
-    "WUSC-LEAP_kakuma_s01e01"
-    "WUSC-LEAP_kakuma_s01e02"
-    "WUSC-LEAP_kakuma_s01e03"
-    "WUSC-LEAP_kakuma_s01e04"
-    "WUSC-LEAP_kakuma_s01e05"
+    "WUSC-LEAP_kalobeyei_s01e01"
+    "WUSC-LEAP_kalobeyei_s01e02"
+    "WUSC-LEAP_kalobeyei_s01e03"
+    "WUSC-LEAP_kalobeyei_s01e04"
+    "WUSC-LEAP_kalobeyei_s01e05"
 
     "WUSC-KEEP-II_kakuma_location"
     "WUSC-KEEP-II_kakuma_gender"

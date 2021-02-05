@@ -12,7 +12,6 @@ from storage.google_cloud import google_cloud_utils
 from src.lib import PipelineConfiguration
 from configurations.code_schemes import CodeSchemes
 
-Logger.set_project_name("WUSC-KEEP-II")
 log = Logger(__name__)
 
 if __name__ == "__main__":
@@ -23,7 +22,7 @@ if __name__ == "__main__":
                         help="Path to a Google Cloud service account credentials file to use to access the "
                              "credentials bucket")
     parser.add_argument("pipeline_configuration_file_path", metavar="pipeline-configuration-file",
-                        help="Path to WUSC-KEEP-II-KAKUMA pipeline configuration json file")
+                        help="Path to WUSC-LEAP-KALOBEYEI pipeline configuration json file")
     parser.add_argument("listening_group_data_dir", metavar="listening-group-data-dir",
                         help="Directory path to read listening group CSV files to extract listening group data from,")
     parser.add_argument("messages_traced_data_paths", metavar="messages-traced-data-paths", nargs="+",

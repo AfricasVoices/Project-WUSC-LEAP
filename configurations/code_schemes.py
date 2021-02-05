@@ -11,11 +11,11 @@ def _open_scheme(filename):
 
 class CodeSchemes(object):
 
-    KAKUMA_S01E01 = _open_scheme("kakuma_s01e01.json")
-    KAKUMA_S01E02 = _open_scheme("kakuma_s01e02.json")
-    KAKUMA_S01E03 = _open_scheme("kakuma_s01e03.json")
-    KAKUMA_S01E04 = _open_scheme("kakuma_s01e04.json")
-    KAKUMA_S01E05 = _open_scheme("kakuma_s01e05.json")
+    KALOBEYEI_S01E01 = _open_scheme("kalobeyei_s01e01.json")
+    KALOBEYEI_S01E02 = _open_scheme("kalobeyei_s01e02.json")
+    KALOBEYEI_S01E03 = _open_scheme("kalobeyei_s01e03.json")
+    KALOBEYEI_S01E04 = _open_scheme("kalobeyei_s01e04.json")
+    KALOBEYEI_S01E05 = _open_scheme("kalobeyei_s01e05.json")
 
     GENDER = _open_scheme("gender.json")
     NATIONALITY = _open_scheme("nationality.json")
