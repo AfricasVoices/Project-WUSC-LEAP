@@ -25,14 +25,14 @@ DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 HASH=$(git rev-parse HEAD)
 RUN_ID="$DATE-$HASH"
 
-./1_kakuma_coda_get.sh "$CODA_PULL_CREDENTIALS_PATH" "$CODA_TOOLS_ROOT" "$DATA_ROOT"
+./1_kalobeyei_coda_get.sh "$CODA_PULL_CREDENTIALS_PATH" "$CODA_TOOLS_ROOT" "$DATA_ROOT"
 
 ./2_fetch_raw_data.sh "$USER" "$GOOGLE_CLOUD_CREDENTIALS_FILE_PATH" "$PIPELINE_CONFIGURATION" "$DATA_ROOT"
 
 ./3_generate_outputs.sh --profile-memory "$PERFORMANCE_LOGS_DIR/memory-$RUN_ID.profile" \
     "$USER" "$GOOGLE_CLOUD_CREDENTIALS_FILE_PATH" "$PIPELINE_CONFIGURATION" "$DATA_ROOT"
 
-./4_kakuma_coda_add.sh "$CODA_PUSH_CREDENTIALS_PATH" "$CODA_TOOLS_ROOT" "$DATA_ROOT"
+./4_kalobeyei_coda_add.sh "$CODA_PUSH_CREDENTIALS_PATH" "$CODA_TOOLS_ROOT" "$DATA_ROOT"
 
 ./5_automated_analysis.sh "$USER" "$PIPELINE_CONFIGURATION" "$DATA_ROOT"
 
