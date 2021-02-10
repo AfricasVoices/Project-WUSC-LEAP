@@ -1,0 +1,150 @@
+{
+  "RawDataSources": [
+    {
+      "SourceType": "RapidPro",
+      "Domain": "textit.in",
+      "TokenFileURL": "gs://avf-credentials/wusc-keep-II-kakuma-textit-token.txt",
+      "ContactsFileName": "wusc_kakuma_contacts",
+      "ActivationFlowNames": [
+
+      ],
+      "SurveyFlowNames": [
+        "wusc_keep_ii_kakuma_demogs",
+        "wusc_keep_ii_s02_kakuma_demogs"
+      ],
+      "TestContactUUIDs": [
+        "84f1c3bc-596e-455e-b5f6-ce16640e9b95",
+        "965a6702-08b9-438d-b234-d2d71b5e7c27",
+        "5f214693-03dc-4867-b440-896bf2ccbb1e",
+        "df4b5e80-2148-4fa6-82c1-307bebc554bc",
+        "9571e451-9c34-4bf8-83ec-bf68a929c9e3",
+        "e3831837-3dd7-4ace-91a3-ee8da80a3ebe"
+      ]
+    },
+    {
+      "SourceType": "RapidPro",
+      "Domain": "textit.in",
+      "TokenFileURL": "gs://avf-credentials/wusc-leap-kalobeyei-textit-token.txt",
+      "ContactsFileName": "wusc_kalobeyei_contacts",
+      "ActivationFlowNames": [
+        "wusc_leap_s01e01_kalobeyei_activation",
+        "wusc_leap_s01e02_kalobeyei_activation",
+        "wusc_leap_s01e03_kalobeyei_activation",
+        "wusc_leap_s01e04_kalobeyei_activation",
+        "wusc_leap_s01e05_kalobeyei_activation"
+      ],
+      "SurveyFlowNames": [
+        "wusc_leap_s01_kalobeyei_demogs"
+      ],
+      "TestContactUUIDs": [
+        "905aa170-fada-4380-b5b6-6837de5cbb04",
+        "95a2ad1f-9b47-4842-8ba0-d74d9796faae",
+        "b71bcda8-c6c7-4a76-a088-3ec209b39d31",
+        "df4b5e80-2148-4fa6-82c1-307bebc554bc"
+      ]
+    }
+  ],
+  "ListeningGroupCSVURLs":[
+
+    ],
+  "PhoneNumberUuidTable": {
+    "FirebaseCredentialsFileURL": "gs://avf-credentials/avf-id-infrastructure-firebase-adminsdk-6xps8-b9173f2bfd.json",
+    "TableName": "WUSC_KEEP_II_phone_number_avf_phone_id"
+  },
+  "RapidProKeyRemappings": [
+    {"RapidProKey": "avf_phone_id", "PipelineKey": "uid"},
+
+    {"RapidProKey": "Rqa_S01E01 (Text) - wusc_leap_s01e01_kalobeyei_activation", "PipelineKey": "rqa_s01e01_raw", "IsActivationMessage": true},
+    {"RapidProKey": "Rqa_S01E02 (Text) - wusc_leap_s01e02_kalobeyei_activation", "PipelineKey": "rqa_s01e02_raw", "IsActivationMessage": true},
+    {"RapidProKey": "Rqa_S01E03 (Text) - wusc_leap_s01e03_kalobeyei_activation", "PipelineKey": "rqa_s01e03_raw", "IsActivationMessage": true},
+    {"RapidProKey": "Rqa_S01E04 (Text) - wusc_leap_s01e04_kalobeyei_activation", "PipelineKey": "rqa_s01e04_raw", "IsActivationMessage": true},
+    {"RapidProKey": "Rqa_S01E05 (Text) - wusc_leap_s01e05_kalobeyei_activation", "PipelineKey": "rqa_s01e05_raw", "IsActivationMessage": true},
+
+    {"RapidProKey": "Rqa_S01E01 (Run ID) - wusc_leap_s01e01_kalobeyei_activation", "PipelineKey": "rqa_s01e01_run_id"},
+    {"RapidProKey": "Rqa_S01E02 (Run ID) - wusc_leap_s01e02_kalobeyei_activation", "PipelineKey": "rqa_s01e02_run_id"},
+    {"RapidProKey": "Rqa_S01E03 (Run ID) - wusc_leap_s01e03_kalobeyei_activation", "PipelineKey": "rqa_s01e03_run_id"},
+    {"RapidProKey": "Rqa_S01E04 (Run ID) - wusc_leap_s01e04_kalobeyei_activation", "PipelineKey": "rqa_s01e04_run_id"},
+    {"RapidProKey": "Rqa_S01E05 (Run ID) - wusc_leap_s01e05_kalobeyei_activation", "PipelineKey": "rqa_s01e05_run_id"},
+
+    {"RapidProKey": "Rqa_S01E01 (Time) - wusc_leap_s01e01_kalobeyei_activation", "PipelineKey": "sent_on"},
+    {"RapidProKey": "Rqa_S01E02 (Time) - wusc_leap_s01e02_kalobeyei_activation", "PipelineKey": "sent_on"},
+    {"RapidProKey": "Rqa_S01E03 (Time) - wusc_leap_s01e03_kalobeyei_activation", "PipelineKey": "sent_on"},
+    {"RapidProKey": "Rqa_S01E04 (Time) - wusc_leap_s01e04_kalobeyei_activation", "PipelineKey": "sent_on"},
+    {"RapidProKey": "Rqa_S01E05 (Time) - wusc_leap_s01e05_kalobeyei_activation", "PipelineKey": "sent_on"},
+
+
+    {"RapidProKey": "Gender (Text) - wusc_keep_ii_kakuma_demogs", "PipelineKey": "gender_raw"},
+    {"RapidProKey": "Gender (Time) - wusc_keep_ii_kakuma_demogs", "PipelineKey": "gender_time"},
+    {"RapidProKey": "Age (Text) - wusc_keep_ii_kakuma_demogs", "PipelineKey": "age_raw"},
+    {"RapidProKey": "Age (Time) - wusc_keep_ii_kakuma_demogs", "PipelineKey": "age_time"},
+    {"RapidProKey": "Location (Text) - wusc_keep_ii_kakuma_demogs", "PipelineKey": "location_raw"},
+    {"RapidProKey": "Location (Time) - wusc_keep_ii_kakuma_demogs", "PipelineKey": "location_time"},
+    {"RapidProKey": "Nationality (Text) - wusc_keep_ii_kakuma_demogs", "PipelineKey": "nationality_raw"},
+    {"RapidProKey": "Nationality (Time) - wusc_keep_ii_kakuma_demogs", "PipelineKey": "nationality_time"},
+    {"RapidProKey": "Household_Language (Text) - wusc_keep_ii_kakuma_demogs", "PipelineKey": "household_language_raw"},
+    {"RapidProKey": "Household_Language (Time) - wusc_keep_ii_kakuma_demogs", "PipelineKey": "household_language_time"},
+
+
+    {"RapidProKey": "Gender (Text) - wusc_covid19_adaptation_kakuma_demogs", "PipelineKey": "gender_raw"},
+    {"RapidProKey": "Gender (Time) - wusc_covid19_adaptation_kakuma_demogs", "PipelineKey": "gender_time"},
+    {"RapidProKey": "Age (Text) - wusc_covid19_adaptation_kakuma_demogs", "PipelineKey": "age_raw"},
+    {"RapidProKey": "Age (Time) - wusc_covid19_adaptation_kakuma_demogs", "PipelineKey": "age_time"},
+    {"RapidProKey": "Location (Text) - wusc_covid19_adaptation_kakuma_demogs", "PipelineKey": "location_raw"},
+    {"RapidProKey": "Location (Time) - wusc_covid19_adaptation_kakuma_demogs", "PipelineKey": "location_time"},
+    {"RapidProKey": "Nationality (Text) - wusc_covid19_adaptation_kakuma_demogs", "PipelineKey": "nationality_raw"},
+    {"RapidProKey": "Nationality (Time) - wusc_covid19_adaptation_kakuma_demogs", "PipelineKey": "nationality_time"},
+    {"RapidProKey": "Household_Language (Text) - wusc_covid19_adaptation_kakuma_demogs", "PipelineKey": "household_language_raw"},
+    {"RapidProKey": "Household_Language (Time) - wusc_covid19_adaptation_kakuma_demogs", "PipelineKey": "household_language_time"},
+
+
+    {"RapidProKey": "Gender (Text) - wusc_keep_ii_s02_kakuma_demogs", "PipelineKey": "gender_raw"},
+    {"RapidProKey": "Gender (Time) - wusc_keep_ii_s02_kakuma_demogs", "PipelineKey": "gender_time"},
+    {"RapidProKey": "Age (Text) - wusc_keep_ii_s02_kakuma_demogs", "PipelineKey": "age_raw"},
+    {"RapidProKey": "Age (Time) - wusc_keep_ii_s02_kakuma_demogs", "PipelineKey": "age_time"},
+    {"RapidProKey": "Location (Text) - wusc_keep_ii_s02_kakuma_demogs", "PipelineKey": "location_raw"},
+    {"RapidProKey": "Location (Time) - wusc_keep_ii_s02_kakuma_demogs", "PipelineKey": "location_time"},
+    {"RapidProKey": "Nationality (Text) - wusc_keep_ii_s02_kakuma_demogs", "PipelineKey": "nationality_raw"},
+    {"RapidProKey": "Nationality (Time) - wusc_keep_ii_s02_kakuma_demogs", "PipelineKey": "nationality_time"},
+    {"RapidProKey": "Household_Language (Text) - wusc_keep_ii_s02_kakuma_demogs", "PipelineKey": "household_language_raw"},
+    {"RapidProKey": "Household_Language (Time) - wusc_keep_ii_s02_kakuma_demogs", "PipelineKey": "household_language_time"},
+
+    {"RapidProKey": "Gender (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "gender_raw"},
+    {"RapidProKey": "Gender (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "gender_time"},
+    {"RapidProKey": "Age (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "age_raw"},
+    {"RapidProKey": "Age (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "age_time"},
+    {"RapidProKey": "Location (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "location_raw"},
+    {"RapidProKey": "Location (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "location_time"},
+    {"RapidProKey": "Nationality (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "nationality_raw"},
+    {"RapidProKey": "Nationality (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "nationality_time"},
+    {"RapidProKey": "Household_Language (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "household_language_raw"},
+    {"RapidProKey": "Household_Language (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "household_language_time"},
+    {"RapidProKey": "Participants_Engaging (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "participants_engaging_raw"},
+    {"RapidProKey": "Participants_Engaging (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "participants_engaging_time"},
+    {"RapidProKey": "Targeted_Group_Parent (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "targeted_group_parent_raw"},
+    {"RapidProKey": "Targeted_Group_Parent (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "targeted_group_parent_time"},
+    {"RapidProKey": "Child_Gender (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "child_gender_raw"},
+    {"RapidProKey": "Child_Gender (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "child_gender_time"},
+    {"RapidProKey": "Consent_To_Engage_Child (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "consent_to_engage_child_raw"},
+    {"RapidProKey": "Consent_To_Engage_Child (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "consent_to_engage_child_time"},
+    {"RapidProKey": "Age_Of_Parent (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "age_of_parent_raw"},
+    {"RapidProKey": "Age_Of_Parent (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "age_of_parent_time"},
+    {"RapidProKey": "Currently_In_School (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "currently_in_school_raw"},
+    {"RapidProKey": "Currently_In_School (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "currently_in_school_time"}
+  ],
+
+  "PipelineName": "leap_kalobeyei_s01_pipeline",
+  "ProjectStartDate": "2020-01-18T13:00:00+03:00",
+  "ProjectEndDate": "2100-01-01T00:00:00+03:00",
+  "FilterTestMessages": true,
+  "MoveWSMessages": true,
+  "DriveUpload": {
+    "DriveCredentialsFileURL": "gs://avf-credentials/pipeline-runner-service-acct-avf-data-core-64cc71459fe7.json",
+    "ProductionUploadPath": "wusc_leap_analysis_outputs/kalobeyei/s01/production.csv",
+    "MessagesUploadPath": "wusc_leap_analysis_outputs/kalobeyei/s01/messages.csv",
+    "IndividualsUploadPath": "wusc_leap_analysis_outputs/kalobeyei/s01/individuals.csv",
+    "AutomatedAnalysisDir": "wusc_leap_analysis_outputs/kalobeyei/s01/automated_analysis"
+  },
+  "MemoryProfileUploadURLPrefix": "gs://avf-pipeline-logs-performance-nearline/",
+  "DataArchiveUploadURLPrefix": "gs://pipeline-execution-backup-archive",
+  "BucketDirPath": "2021/WUSC-LEAP/KALOBEYEI"
+}
