@@ -10,6 +10,7 @@
       ],
       "SurveyFlowNames": [
         "wusc_keep_ii_kakuma_demogs",
+        "wusc_covid19_adaptation_kakuma_demogs",
         "wusc_keep_ii_s02_kakuma_demogs"
       ],
       "TestContactUUIDs": [
