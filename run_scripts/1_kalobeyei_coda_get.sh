@@ -14,7 +14,6 @@ DATA_ROOT=$3
 
 ./checkout_coda_v2.sh "$CODA_V2_ROOT"
 
-PROJECT_NAME="WUSC-"
 DATASETS=(
     "WUSC-LEAP_kalobeyei_s01e01"
     "WUSC-LEAP_kalobeyei_s01e02"
