@@ -79,7 +79,7 @@ class AnalysisFile(object):
             for plan in PipelineConfiguration.RQA_CODING_PLANS:
                 export_keys.extend([f'{plan.dataset_name}_listening_group_participant'])
         else:
-            assert pipeline_configuration.pipeline_name in ["leap_dadaab_s02_pipeline"],\
+            assert pipeline_configuration.pipeline_name in ["leap_dadaab_s01_pipeline"],\
                 "PipelineName must be either a 'seasonal pipeline' or 'all seasons pipeline'"
 
         for plan in PipelineConfiguration.RQA_CODING_PLANS + PipelineConfiguration.SURVEY_CODING_PLANS:
