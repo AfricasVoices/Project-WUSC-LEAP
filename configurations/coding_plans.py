@@ -19,7 +19,7 @@ def clean_age_with_range_filter(text):
         return Codes.NOT_CODED
 
 
-KALOBEYEI_RQA_CODING_PLANS = [
+KALOBEYEI_S01_RQA_CODING_PLANS = [
             CodingPlan(raw_field="rqa_s01e01_raw",
                        dataset_name="kalobeyei_s01e01",
                        listening_group_filename="wusc_leap_kalobeyei_s01e01_listening_group.csv",
@@ -122,7 +122,7 @@ CodingPlan(raw_field="rqa_s01e05_raw",
     ]
 
 def get_rqa_coding_plans(pipeline_name):
-        return KALOBEYEI_RQA_CODING_PLANS
+        return KALOBEYEI_S01_RQA_CODING_PLANS
 
 KAKUMA_DEMOG_CODING_PLANS = [
         CodingPlan(raw_field="location_raw",
@@ -220,11 +220,120 @@ KAKUMA_DEMOG_CODING_PLANS = [
                    ],
                    ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("kakuma nationality"),
                    raw_field_fold_strategy=FoldStrategies.assert_equal),
+
+        CodingPlan(raw_field="participants_engaging_raw",
+                   dataset_name="kalobeyei_participants_engaging",
+                   time_field="kalobeyei_participants_engaging_time",
+                   coda_filename="kalobeyei_participants_engaging.json",
+                   coding_configurations=[
+                       CodingConfiguration(
+                           coding_mode=CodingModes.SINGLE,
+                           code_scheme=CodeSchemes.NATIONALITY,
+                           coded_field="kalobeyei_participants_engaging_coded",
+                           analysis_file_key="kalobeyei_participants_engaging",
+                           fold_strategy=FoldStrategies.assert_label_ids_equal,
+                           include_in_theme_distribution=Codes.TRUE
+                       )
+                   ],
+                   ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("leap kalobeyei participants engaging"),
+           raw_field_fold_strategy=FoldStrategies.assert_equal),
+
+        CodingPlan(raw_field="kalobeyei_targeted_group_parent_raw",
+                   dataset_name="kalobeyei_targeted_group_parent",
+                   time_field="kalobeyei_targeted_group_parent_time",
+                   coda_filename="kalobeyei_targeted_group_parent.json",
+                   coding_configurations=[
+                       CodingConfiguration(
+                           coding_mode=CodingModes.SINGLE,
+                           code_scheme=CodeSchemes.NATIONALITY,
+                           coded_field="kalobeyei_targeted_group_parent_coded",
+                           analysis_file_key="kalobeyei_targeted_group_parent",
+                           fold_strategy=FoldStrategies.assert_label_ids_equal,
+                           include_in_theme_distribution=Codes.TRUE
+                       )
+                   ],
+                   ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("leap kalobeyei targeted group parent"),
+           raw_field_fold_strategy=FoldStrategies.assert_equal),
+
+        CodingPlan(raw_field="kalobeyei_child_gender_raw",
+                   dataset_name="kalobeyei_child_gender",
+                   time_field="kalobeyei_child_gender_time",
+                   coda_filename="kalobeyei_child_gender.json",
+                   coding_configurations=[
+                       CodingConfiguration(
+                           coding_mode=CodingModes.SINGLE,
+                           code_scheme=CodeSchemes.NATIONALITY,
+                           coded_field="kalobeyei_child_gender_coded",
+                           analysis_file_key="kalobeyei_child_gender",
+                           fold_strategy=FoldStrategies.assert_label_ids_equal,
+                           include_in_theme_distribution=Codes.TRUE
+                       )
+                   ],
+                   ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("leap kalobeyei child gender"),
+   raw_field_fold_strategy=FoldStrategies.assert_equal),
+
+        CodingPlan(raw_field="kalobeyei_consent_to_engage_child_raw",
+                                           dataset_name="kalobeyei_consent_to_engage_child",
+                                           time_field="kalobeyei_consent_to_engage_child_time",
+                                           coda_filename="kalobeyei_consent_to_engage_child.json",
+                                           coding_configurations=[
+                                               CodingConfiguration(
+                                                   coding_mode=CodingModes.SINGLE,
+                                                   code_scheme=CodeSchemes.NATIONALITY,
+                                                   coded_field="kalobeyei_consent_to_engage_child_coded",
+                                                   analysis_file_key="kalobeyei_consent_to_engage_child",
+                                                   fold_strategy=FoldStrategies.assert_label_ids_equal,
+                                                   include_in_theme_distribution=Codes.TRUE
+                                               )
+                                           ],
+                                           ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("leap kalobeyei consent to engage child"),
+                           raw_field_fold_strategy=FoldStrategies.assert_equal),
+
+        CodingPlan(raw_field="kalobeyei_age_of_parent_raw",
+                                                           dataset_name="kalobeyei_age_of_parent",
+                                                           time_field="kalobeyei_age_of_parent_time",
+                                                           coda_filename="kalobeyei_age_of_parent.json",
+                                                           coding_configurations=[
+                                                               CodingConfiguration(
+                                                                   coding_mode=CodingModes.SINGLE,
+                                                                   code_scheme=CodeSchemes.NATIONALITY,
+                                                                   coded_field="kalobeyei_age_of_parent_coded",
+                                                                   analysis_file_key="kalobeyei_age_of_parent",
+                                                                   fold_strategy=FoldStrategies.assert_label_ids_equal,
+                                                                   include_in_theme_distribution=Codes.TRUE
+                                                               )
+                                                           ],
+                                                           ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("leap kalobeyei age of parent"),
+                                           raw_field_fold_strategy=FoldStrategies.assert_equal),
+
+        CodingPlan(raw_field="kalobeyei_currently_in_school_raw",
+                                                                   dataset_name="kalobeyei_currently_in_school",
+                                                                   time_field="kalobeyei_currently_in_school_time",
+                                                                   coda_filename="kalobeyei_currently_in_school.json",
+                                                                   coding_configurations=[
+                                                                       CodingConfiguration(
+                                                                           coding_mode=CodingModes.SINGLE,
+                                                                           code_scheme=CodeSchemes.NATIONALITY,
+                                                                           coded_field="kalobeyei_currently_in_school_coded",
+                                                                           analysis_file_key="kalobeyei_currently_in_school",
+                                                                           fold_strategy=FoldStrategies.assert_label_ids_equal,
+                                                                           include_in_theme_distribution=Codes.TRUE
+                                                                       )
+                                                                   ],
+                                                                   ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("leap kalobeyei currently in school"),
+                                                   raw_field_fold_strategy=FoldStrategies.assert_equal),
+
         ]
 
+KALOBEYEI_S01_FOLLOW_UP_CODING_PLANS = [
+
+]
 
 def get_demog_coding_plans(pipeline_name):
         return KAKUMA_DEMOG_CODING_PLANS
 
 def get_ws_correct_dataset_scheme(pipeline_name):
         return CodeSchemes.KAKUMA_WS_CORRECT_DATASET
+
+def get_follow_up_coding_plans(pipeline_name):
+    return KALOBEYEI_S01_FOLLOW_UP_CODING_PLANS
