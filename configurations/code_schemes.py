@@ -24,4 +24,11 @@ class CodeSchemes(object):
     KAKUMA_HOUSEHOLD_LANGUAGE = _open_scheme("kakuma_household_language.json")
     KAKUMA_LOCATION = _open_scheme("kakuma_location.json")
 
+    KALOBEYEI_PARTICIPANTS_ENGAGING = _open_scheme("kalobeyei_participants_engaging.json")
+    KALOBEYEI_TARGETED_GROUP_PARENT = _open_scheme("kalobeyei_targeted_group_parent.json")
+    KALOBEYEI_CHILD_GENDER = _open_scheme("kalobeyei_child_gender.json")
+    KALOBEYEI_CONSENT_TO_ENGAGE_CHILD = _open_scheme("kalobeyei_consent_to_engage_child.json")
+    KALOBEYEI_AGE_OF_PARENT = _open_scheme("kalobeyei_age_of_parent.json")
+    KALOBEYEI_CURRENTLY_IN_SCHOOL = _open_scheme("kalobeyei_currently_in_school.json")
+
     KAKUMA_WS_CORRECT_DATASET = _open_scheme("kakuma_ws_correct_dataset.json")

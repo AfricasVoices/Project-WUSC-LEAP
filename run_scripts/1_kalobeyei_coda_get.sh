@@ -14,7 +14,6 @@ DATA_ROOT=$3
 
 ./checkout_coda_v2.sh "$CODA_V2_ROOT"
 
-PROJECT_NAME="WUSC-"
 DATASETS=(
     "WUSC-LEAP_kalobeyei_s01e01"
     "WUSC-LEAP_kalobeyei_s01e02"
@@ -27,6 +26,13 @@ DATASETS=(
     "WUSC-KEEP-II_kakuma_age"
     "WUSC-KEEP-II_kakuma_nationality"
     "WUSC-KEEP-II_kakuma_household_language"
+
+    "WUSC-LEAP_kalobeyei_participants_engaging"
+    "WUSC-LEAP_kalobeyei_targeted_group_parent"
+    "WUSC-LEAP_kalobeyei_child_gender"
+    "WUSC-LEAP_kalobeyei_consent_to_engage_child"
+    "WUSC-LEAP_kalobeyei_age_of_parent"
+    "WUSC-LEAP_kalobeyei_currently_in_school"
 )
 
 cd "$CODA_V2_ROOT/data_tools"
