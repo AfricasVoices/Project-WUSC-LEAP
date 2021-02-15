@@ -21,9 +21,12 @@ DATA_ROOT=$7
 DATA_BACKUPS_DIR=$8
 PERFORMANCE_LOGS_DIR=$9
 
-DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 HASH=$(git rev-parse HEAD)
-RUN_ID="$DATE-$HASH"
+RUN_ID="$TIMESTAMP-$HASH"
+
+./log_pipeline_event.sh "$USER" "$GOOGLE_CLOUD_CREDENTIALS_FILE_PATH" "$PIPELINE_CONFIGURATION" \
+                        "$TIMESTAMP" "$RUN_ID" "PipelineRunStart"
 
 ./1_kalobeyei_coda_get.sh "$CODA_PULL_CREDENTIALS_PATH" "$CODA_TOOLS_ROOT" "$DATA_ROOT"
 
@@ -40,4 +43,8 @@ RUN_ID="$DATE-$HASH"
 
 ./7_upload_analysis_files.sh "$USER" "$GOOGLE_CLOUD_CREDENTIALS_FILE_PATH" "$PIPELINE_CONFIGURATION" "$RUN_ID" "$DATA_ROOT"
 
-./8_upload_log_files.sh "$USER" "$GOOGLE_CLOUD_CREDENTIALS_FILE_PATH" "$PIPELINE_CONFIGURATION" "$PERFORMANCE_LOGS_DIR" "$DATA_BACKUPS_DIR"
+./8_upload_log_files.sh "$USER" "$GOOGLE_CLOUD_CREDENTIALS_FILE_PATH" "$PIPELINE_CONFIGURATION" "$PERFORMANCE_LOGS_DIR"
+                        "$DATA_BACKUPS_DIR"
+
+./log_pipeline_event.sh "$USER" "$GOOGLE_CLOUD_CREDENTIALS_FILE_PATH" "$PIPELINE_CONFIGURATION" \
+                        "$TIMESTAMP" "$RUN_ID" "PipelineRunEnd"
