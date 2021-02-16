@@ -23,7 +23,7 @@ def log_pipeline_event(user, google_cloud_credentials_file_path, pipeline_config
     ))
 
     log.info(f"Updating PipelineStart event log for run_id: {run_id}")
-    firestore_pipeline_logger= FirestorePipelineLogger( pipeline_configuration.pipeline_name, run_id,
+    firestore_pipeline_logger= FirestorePipelineLogger(pipeline_configuration.pipeline_name, run_id,
                                                    firestore_pipeline_logs_table_credentials)
 
     firestore_pipeline_logger.log_event(timestamp, event_key)
