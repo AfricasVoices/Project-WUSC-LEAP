@@ -16,7 +16,7 @@ class PipelineConfiguration(object):
     SURVEY_CODING_PLANS = []
     WS_CORRECT_DATASET_SCHEME = None
 
-    def __init__(self, raw_data_sources, phone_number_uuid_table, timestamp_remappings,
+    def __init__(self, raw_data_sources, phone_number_uuid_table, operations_dashboard, timestamp_remappings,
                  rapid_pro_key_remappings, project_start_date, project_end_date, filter_test_messages, move_ws_messages,
                  memory_profile_upload_bucket, data_archive_upload_bucket, bucket_dir_path, pipeline_name=None,
                  drive_upload=None, listening_group_csv_urls=None):
@@ -25,6 +25,8 @@ class PipelineConfiguration(object):
         :type raw_data_sources: list of RawDataSource
         :param phone_number_uuid_table: Configuration for the Firestore phone number <-> uuid table.
         :type phone_number_uuid_table: PhoneNumberUuidTable
+        :param operations_dashboard: Configuration for the avf operations dashboard.
+        :type OperationsDashboard:  dict
         :param rapid_pro_key_remappings: List of rapid_pro_key -> pipeline_key remappings.
         :type rapid_pro_key_remappings: list of RapidProKeyRemapping
         :param project_start_date: When data collection started - all activation messages received before this date
@@ -57,6 +59,7 @@ class PipelineConfiguration(object):
         """
         self.raw_data_sources = raw_data_sources
         self.phone_number_uuid_table = phone_number_uuid_table
+        self.operations_dashboard = operations_dashboard
         self.timestamp_remappings = timestamp_remappings
         self.rapid_pro_key_remappings = rapid_pro_key_remappings
         self.project_start_date = project_start_date
@@ -92,6 +95,9 @@ class PipelineConfiguration(object):
         phone_number_uuid_table = PhoneNumberUuidTable.from_configuration_dict(
             configuration_dict["PhoneNumberUuidTable"])
 
+        operations_dashboard = OperationsDashboard.from_configuration_dict(
+            configuration_dict["OperationsDashboard"])
+
         timestamp_remappings = []
         for remapping_dict in configuration_dict.get("TimestampRemappings", []):
             timestamp_remappings.append(TimestampRemapping.from_configuration_dict(remapping_dict))
@@ -118,7 +124,7 @@ class PipelineConfiguration(object):
 
         listening_group_csv_urls = configuration_dict.get("ListeningGroupCSVURLs")
 
-        return cls(raw_data_sources, phone_number_uuid_table, timestamp_remappings,
+        return cls(raw_data_sources, phone_number_uuid_table, operations_dashboard, timestamp_remappings,
                    rapid_pro_key_remappings, project_start_date, project_end_date, filter_test_messages,
                    move_ws_messages, memory_profile_upload_bucket, data_archive_upload_bucket, bucket_dir_path,
                    pipeline_name, drive_upload_paths, listening_group_csv_urls)
@@ -299,6 +305,25 @@ class PhoneNumberUuidTable(object):
         validators.validate_url(self.firebase_credentials_file_url, "firebase_credentials_file_url", scheme="gs")
         validators.validate_string(self.table_name, "table_name")
 
+class OperationsDashboard(object):
+    def __init__(self, firebase_credentials_file_url):
+        """
+        :param firebase_credentials_file_url: GS URL to the private credentials file for the Firebase account where
+                                                 the Operations Dashboard data is stored.
+        :type firebase_credentials_file_url: str
+        """
+        self.firebase_credentials_file_url = firebase_credentials_file_url
+
+        self.validate()
+
+    @classmethod
+    def from_configuration_dict(cls, configuration_dict):
+        firebase_credentials_file_url = configuration_dict["FirebaseCredentialsFileURL"]
+
+        return cls(firebase_credentials_file_url)
+
+    def validate(self):
+        validators.validate_url(self.firebase_credentials_file_url, "firebase_credentials_file_url", scheme="gs")
 
 class TimestampRemapping(object):
     def __init__(self, time_key, show_pipeline_key_to_remap_to, range_start_inclusive=None, range_end_exclusive=None,

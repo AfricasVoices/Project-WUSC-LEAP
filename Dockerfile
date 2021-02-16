@@ -57,3 +57,4 @@ ADD generate_outputs.py /app
 ADD upload_analysis_files.py /app
 ADD upload_log_files.py /app
 ADD automated_analysis.py /app
+ADD log_pipeline_event.py /app
