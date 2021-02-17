@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b3c03890588659110a6d0d413c5a2882d67f9ebfb68d95cd931f53fd1ba739bc"
+            "sha256": "47a4c267ec23acae9732aaee2837acd28d3445cf94ee64d8092bcb9e10777ca1"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -117,7 +117,7 @@
         "coredatamodules": {
             "editable": true,
             "git": "https://www.github.com/AfricasVoices/CoreDataModules",
-            "ref": "2e628333c0d0003015944f853e0b23bbe33eaa17"
+            "ref": "1f23f47bb446ad1167d2f45145e10f7b329c6f4d"
         },
         "cycler": {
             "hashes": [
@@ -839,11 +839,11 @@
         },
         "rsa": {
             "hashes": [
-                "sha256:69805d6b69f56eb05b62daea3a7dbd7aa44324ad1306445e05da8060232d00f4",
-                "sha256:a8774e55b59fd9fc893b0d05e9bfc6f47081f46ff5b46f39ccf24631b7be356b"
+                "sha256:74ba16e7ef58920b80b5c54c1c1066d391a2c1e812c466773f74c634eb12253b",
+                "sha256:9d74d1ff850745c9802cd6b53382bfeec7f6dbe4e26ee2759241ed1e7b0ecf5d"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==4.7"
+            "version": "==4.7.1"
         },
         "scikit-learn": {
             "hashes": [

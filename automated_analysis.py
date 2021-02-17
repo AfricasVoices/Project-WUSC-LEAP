@@ -8,9 +8,10 @@ from core_data_modules.data_models.code_scheme import CodeTypes
 from core_data_modules.logging import Logger
 from core_data_modules.traced_data.io import TracedDataJsonIO
 from core_data_modules.util import IOUtils
+from core_data_modules.analysis import AnalysisConfiguration, engagement_counts, theme_distributions, \
+    repeat_participations, sample_messages, traffic_analysis, analysis_utils, traffic_analysis
 
 from src.lib import PipelineConfiguration
-from src.lib.configuration_objects import CodingModes
 from src import AnalysisUtils
 
 log = Logger(__name__)
@@ -68,87 +69,26 @@ if __name__ == "__main__":
             individuals[i] = dict(individuals[i].items())
     log.info(f"Loaded {len(individuals)} individuals")
 
-    # Compute the number of messages, individuals, and relevant messages per episode and overall.
-    log.info("Computing the per-episode and per-season engagement counts...")
-    engagement_counts = OrderedDict()  # of episode name to counts
-    for plan in PipelineConfiguration.RQA_CODING_PLANS:
-        engagement_counts[plan.dataset_name] = {
-            "Episode": plan.dataset_name,
+    def coding_plans_to_analysis_configurations(coding_plans):
+        analysis_configurations = []
+        for plan in coding_plans:
+            ccs = plan.coding_configurations
+            for cc in ccs:
+                if not cc.include_in_theme_distribution:
+                    continue
 
-            "Total Messages": "-",  # Can't report this for individual weeks because the data has been overwritten with "STOP"
-            "Total Messages with Opt-Ins": len(AnalysisUtils.filter_opt_ins(messages, CONSENT_WITHDRAWN_KEY, [plan])),
-            "Total Labelled Messages": len(AnalysisUtils.filter_fully_labelled(messages, CONSENT_WITHDRAWN_KEY, [plan])),
-            "Total Relevant Messages": len(AnalysisUtils.filter_relevant(messages, CONSENT_WITHDRAWN_KEY, [plan])),
+                analysis_configurations.append(
+                    AnalysisConfiguration(cc.analysis_file_key, plan.raw_field, cc.coded_field, cc.code_scheme)
+                )
+        return analysis_configurations
 
-            "Total Participants": "-",
-            "Total Participants with Opt-Ins": len(AnalysisUtils.filter_opt_ins(individuals, CONSENT_WITHDRAWN_KEY, [plan])),
-            "Total Relevant Participants": len(AnalysisUtils.filter_relevant(individuals, CONSENT_WITHDRAWN_KEY, [plan]))
-        }
-    engagement_counts["Total"] = {
-        "Episode": "Total",
-
-        "Total Messages": len(messages),
-        "Total Messages with Opt-Ins": len(AnalysisUtils.filter_opt_ins(messages, CONSENT_WITHDRAWN_KEY, PipelineConfiguration.RQA_CODING_PLANS)),
-        "Total Labelled Messages": len(AnalysisUtils.filter_partially_labelled(messages, CONSENT_WITHDRAWN_KEY, PipelineConfiguration.RQA_CODING_PLANS)),
-        "Total Relevant Messages": len(AnalysisUtils.filter_relevant(messages, CONSENT_WITHDRAWN_KEY, PipelineConfiguration.RQA_CODING_PLANS)),
-
-        "Total Participants": len(individuals),
-        "Total Participants with Opt-Ins": len(AnalysisUtils.filter_opt_ins(individuals, CONSENT_WITHDRAWN_KEY, PipelineConfiguration.RQA_CODING_PLANS)),
-        "Total Relevant Participants": len(AnalysisUtils.filter_relevant(individuals, CONSENT_WITHDRAWN_KEY, PipelineConfiguration.RQA_CODING_PLANS))
-    }
-
+    log.info("Computing engagement counts...")
     with open(f"{automated_analysis_output_dir}/engagement_counts.csv", "w") as f:
-        headers = [
-            "Episode",
-            "Total Messages", "Total Messages with Opt-Ins", "Total Labelled Messages", "Total Relevant Messages",
-            "Total Participants", "Total Participants with Opt-Ins", "Total Relevant Participants"
-        ]
-        writer = csv.DictWriter(f, fieldnames=headers, lineterminator="\n")
-        writer.writeheader()
-
-        for row in engagement_counts.values():
-            writer.writerow(row)
-
-    log.info("Computing the participation frequencies...")
-    repeat_participations = OrderedDict()
-    for i in range(1, len(PipelineConfiguration.RQA_CODING_PLANS) + 1):
-        repeat_participations[i] = {
-            "Number of Episodes Participated In": i,
-            "Number of Participants with Opt-Ins": 0,
-            "% of Participants with Opt-Ins": None
-        }
-
-    # Compute the number of individuals who participated each possible number of times, from 1 to <number of RQAs>
-    # An individual is considered to have participated if they sent a message and didn't opt-out, regardless of the
-    # relevance of any of their messages.
-    for ind in individuals:
-        if AnalysisUtils.withdrew_consent(ind, CONSENT_WITHDRAWN_KEY):
-            continue
-
-        weeks_participated = 0
-        for plan in PipelineConfiguration.RQA_CODING_PLANS:
-            if AnalysisUtils.opt_in(ind, CONSENT_WITHDRAWN_KEY, plan):
-                weeks_participated += 1
-        assert weeks_participated != 0, f"Found individual '{ind['uid']}' with no participation in any week"
-        repeat_participations[weeks_participated]["Number of Participants with Opt-Ins"] += 1
-
-    # Compute the percentage of individuals who participated each possible number of times.
-    # Percentages are computed out of the total number of participants who opted-in.
-    total_participants = len(AnalysisUtils.filter_opt_ins(
-        individuals, CONSENT_WITHDRAWN_KEY, PipelineConfiguration.RQA_CODING_PLANS))
-    for rp in repeat_participations.values():
-        rp["% of Participants with Opt-Ins"] = \
-            round(rp["Number of Participants with Opt-Ins"] / total_participants * 100, 1)
-
-    # Export the participation frequency data to a csv
-    with open(f"{automated_analysis_output_dir}/repeat_participations.csv", "w") as f:
-        headers = ["Number of Episodes Participated In", "Number of Participants with Opt-Ins",
-                   "% of Participants with Opt-Ins"]
-        writer = csv.DictWriter(f, fieldnames=headers, lineterminator="\n")
-        writer.writeheader()
-
-        for row in repeat_participations.values():
-            writer.writerow(row)
+        engagement_counts.export_engagement_counts_csv(
+            messages, individuals, CONSENT_WITHDRAWN_KEY,
+            coding_plans_to_analysis_configurations(PipelineConfiguration.RQA_CODING_PLANS),
+            f
+        )
 
     log.info(f'Computing repeat and new participation per show ...')
     # Computes the number of new and repeat consented individuals who participated in each radio show.
@@ -222,225 +162,32 @@ if __name__ == "__main__":
         for row in repeat_new_participation_map.values():
             writer.writerow(row)
 
-    log.info("Computing the demographic distributions...")
-    # Count the number of individuals with each demographic code.
-    # This count excludes individuals who withdrew consent. STOP codes in each scheme are not exported, as it would look
-    # like 0 individuals opted out otherwise, which could be confusing.
-    demographic_distributions = OrderedDict()  # of analysis_file_key -> code id -> number of individuals
-    total_relevant = OrderedDict()  # of analysis_file_key -> number of relevant individuals
-    for plan in PipelineConfiguration.DEMOG_CODING_PLANS:
-        for cc in plan.coding_configurations:
-            if cc.analysis_file_key is None:
-                continue
-
-            demographic_distributions[cc.analysis_file_key] = OrderedDict()
-            for code in cc.code_scheme.codes:
-                if code.control_code == Codes.STOP:
-                    continue
-                demographic_distributions[cc.analysis_file_key][code.code_id] = 0
-            total_relevant[cc.analysis_file_key] = 0
-
-    for ind in individuals:
-        if ind["consent_withdrawn"] == Codes.TRUE:
-            continue
-
-        for plan in PipelineConfiguration.DEMOG_CODING_PLANS:
-            for cc in plan.coding_configurations:
-                if cc.analysis_file_key is None or cc.include_in_theme_distribution == Codes.FALSE:
-                    continue
-
-                assert cc.coding_mode == CodingModes.SINGLE
-                code = cc.code_scheme.get_code_with_code_id(ind[cc.coded_field]["CodeID"])
-                demographic_distributions[cc.analysis_file_key][code.code_id] += 1
-                if code.code_type == CodeTypes.NORMAL:
-                    total_relevant[cc.analysis_file_key] += 1
-
+    log.info("Computing demographic distributions...")
     with open(f"{automated_analysis_output_dir}/demographic_distributions.csv", "w") as f:
-        headers = ["Demographic", "Code", "Participants with Opt-Ins", "Percent"]
-        writer = csv.DictWriter(f, fieldnames=headers, lineterminator="\n")
-        writer.writeheader()
+        theme_distributions.export_theme_distributions_csv(
+            individuals, CONSENT_WITHDRAWN_KEY,
+            coding_plans_to_analysis_configurations(PipelineConfiguration.DEMOG_CODING_PLANS),
+            [],
+            f
+        )
 
-        for plan in PipelineConfiguration.DEMOG_CODING_PLANS:
-            for cc in plan.coding_configurations:
-                if cc.analysis_file_key is None:
-                    continue
-
-                for i, code in enumerate(cc.code_scheme.codes):
-                    # Don't export a row for STOP codes because these have already been excluded, so would
-                    # report 0 here, which could be confusing.
-                    if code.control_code == Codes.STOP:
-                        continue
-
-                    participants_with_opt_ins = demographic_distributions[cc.analysis_file_key][code.code_id]
-                    row = {
-                        "Demographic": cc.analysis_file_key if i == 0 else "",
-                        "Code": code.string_value,
-                        "Participants with Opt-Ins": participants_with_opt_ins,
-                    }
-
-                    # Only compute a percentage for relevant codes.
-                    if code.code_type == CodeTypes.NORMAL:
-                        if total_relevant[cc.analysis_file_key] == 0:
-                            row["Percent"] = "-"
-                        else:
-                            row["Percent"] = round(participants_with_opt_ins / total_relevant[cc.analysis_file_key] * 100, 1)
-                    else:
-                        row["Percent"] = ""
-
-                    writer.writerow(row)
-
-    # Compute the theme distributions
-    log.info("Computing the theme distributions...")
-
-    def make_survey_counts_dict():
-        survey_counts = OrderedDict()
-        survey_counts["Total Participants"] = 0
-        survey_counts["Total Participants %"] = None
-        for plan in PipelineConfiguration.SURVEY_CODING_PLANS:
-            for cc in plan.coding_configurations:
-                if cc.include_in_theme_distribution == Codes.FALSE:
-                    continue
-
-                for code in cc.code_scheme.codes:
-                    if code.control_code == Codes.STOP:
-                        continue  # Ignore STOP codes because we already excluded everyone who opted out.
-                    survey_counts[f"{cc.analysis_file_key}:{code.string_value}"] = 0
-                    survey_counts[f"{cc.analysis_file_key}:{code.string_value} %"] = None
-
-        return survey_counts
-
-    def update_survey_counts(survey_counts, td):
-        for plan in PipelineConfiguration.SURVEY_CODING_PLANS:
-            for cc in plan.coding_configurations:
-                if cc.include_in_theme_distribution == Codes.FALSE:
-                    continue
-
-                if cc.coding_mode == CodingModes.SINGLE:
-                    codes = [cc.code_scheme.get_code_with_code_id(td[cc.coded_field]["CodeID"])]
-                else:
-                    assert cc.coding_mode == CodingModes.MULTIPLE
-                    codes = [cc.code_scheme.get_code_with_code_id(label["CodeID"]) for label in td[cc.coded_field]]
-
-                for code in codes:
-                    if code.control_code == Codes.STOP:
-                        continue
-                    survey_counts[f"{cc.analysis_file_key}:{code.string_value}"] += 1
-
-    def set_survey_percentages(survey_counts, total_survey_counts):
-        if total_survey_counts["Total Participants"] == 0:
-            survey_counts["Total Participants %"] = "-"
-        else:
-            survey_counts["Total Participants %"] = \
-                round(survey_counts["Total Participants"] / total_survey_counts["Total Participants"] * 100, 1)
-
-        for plan in PipelineConfiguration.SURVEY_CODING_PLANS:
-            for cc in plan.coding_configurations:
-                if cc.include_in_theme_distribution == Codes.FALSE:
-                    continue
-
-                for code in cc.code_scheme.codes:
-                    if code.control_code == Codes.STOP:
-                        continue
-
-                    code_count = survey_counts[f"{cc.analysis_file_key}:{code.string_value}"]
-                    code_total = total_survey_counts[f"{cc.analysis_file_key}:{code.string_value}"]
-
-                    if code_total == 0:
-                        survey_counts[f"{cc.analysis_file_key}:{code.string_value} %"] = "-"
-                    else:
-                        survey_counts[f"{cc.analysis_file_key}:{code.string_value} %"] = \
-                            round(code_count / code_total * 100, 1)
-
-    episodes = OrderedDict()
-    for episode_plan in PipelineConfiguration.RQA_CODING_PLANS:
-        # Prepare empty counts of the survey responses for each variable
-        themes = OrderedDict()
-        episodes[episode_plan.raw_field] = themes
-        for cc in episode_plan.coding_configurations:
-            # TODO: Add support for CodingModes.SINGLE if we need it e.g. for IMAQAL?
-            assert cc.coding_mode == CodingModes.MULTIPLE, "Other CodingModes not (yet) supported"
-            themes["Total Relevant Participants"] = make_survey_counts_dict()
-            for code in cc.code_scheme.codes:
-                if code.control_code == Codes.STOP:
-                    continue
-                themes[f"{cc.analysis_file_key}_{code.string_value}"] = make_survey_counts_dict()
-
-        # Fill in the counts by iterating over every individual
-        for td in individuals:
-            if td["consent_withdrawn"] == Codes.TRUE:
-                continue
-
-            relevant_participant = False
-            for cc in episode_plan.coding_configurations:
-                assert cc.coding_mode == CodingModes.MULTIPLE, "Other CodingModes not (yet) supported"
-                for label in td[cc.coded_field]:
-                    code = cc.code_scheme.get_code_with_code_id(label["CodeID"])
-                    if code.control_code == Codes.STOP:
-                        continue
-                    themes[f"{cc.analysis_file_key}_{code.string_value}"]["Total Participants"] += 1
-                    update_survey_counts(themes[f"{cc.analysis_file_key}_{code.string_value}"], td)
-                    if code.code_type == CodeTypes.NORMAL:
-                        relevant_participant = True
-
-            if relevant_participant:
-                themes["Total Relevant Participants"]["Total Participants"] += 1
-                update_survey_counts(themes["Total Relevant Participants"], td)
-
-        set_survey_percentages(themes["Total Relevant Participants"], themes["Total Relevant Participants"])
-
-        for cc in episode_plan.coding_configurations:
-            assert cc.coding_mode == CodingModes.MULTIPLE, "Other CodingModes not (yet) supported"
-
-            for code in cc.code_scheme.codes:
-                if code.code_type != CodeTypes.NORMAL:
-                    continue
-
-                theme = themes[f"{cc.analysis_file_key}_{code.string_value}"]
-                set_survey_percentages(theme, themes["Total Relevant Participants"])
-
+    log.info("Computing theme distributions...")
     with open(f"{automated_analysis_output_dir}/theme_distributions.csv", "w") as f:
-        headers = ["Question", "Variable"] + list(make_survey_counts_dict().keys())
-        writer = csv.DictWriter(f, fieldnames=headers, lineterminator="\n")
-        writer.writeheader()
-
-        last_row_episode = None
-        for episode, themes in episodes.items():
-            for theme, survey_counts in themes.items():
-                row = {
-                    "Question": episode if episode != last_row_episode else "",
-                    "Variable": theme,
-                }
-                row.update(survey_counts)
-                writer.writerow(row)
-                last_row_episode = episode
+        theme_distributions.export_theme_distributions_csv(
+            individuals, CONSENT_WITHDRAWN_KEY,
+            coding_plans_to_analysis_configurations(PipelineConfiguration.RQA_CODING_PLANS),
+            coding_plans_to_analysis_configurations(PipelineConfiguration.SURVEY_CODING_PLANS),
+            f
+        )
 
     # Export raw messages labelled with Meta impact, gratitude and about conversation programmatically known as impact/success story
     log.info("Exporting success story raw messages for each episode...")
-    impact_messages = []  # of dict of code_string_value to avf-uid and raw messages
     success_story_string_values = ["gratitude", "about_conversation", "impact"]
-    for plan in PipelineConfiguration.RQA_CODING_PLANS:
-        for cc in plan.coding_configurations:
-            for msg in messages:
-                if not AnalysisUtils.labelled(msg, CONSENT_WITHDRAWN_KEY, plan):
-                    continue
-
-                for label in msg[cc.coded_field]:
-                    code = cc.code_scheme.get_code_with_code_id(label["CodeID"])
-
-                    if code.string_value in success_story_string_values:
-                        impact_messages.append({
-                            "Dataset": plan.dataset_name,
-                            "UID": msg['uid'],
-                            "Code": code.string_value,
-                            "Raw Message": msg[plan.raw_field]
-                        })
-
     with open(f"{automated_analysis_output_dir}/impact_messages.csv", "w") as f:
-        headers = ["Dataset", "UID", "Code", "Raw Message"]
-        writer = csv.DictWriter(f, fieldnames=headers, lineterminator="\n")
-        writer.writeheader()
-
-        for msg in impact_messages:
-            writer.writerow(msg)
+        sample_messages.export_sample_messages_csv(
+            messages, CONSENT_WITHDRAWN_KEY,
+            coding_plans_to_analysis_configurations(PipelineConfiguration.RQA_CODING_PLANS),
+            f, filter_code_ids=success_story_string_values, limit_per_code=sys.maxsize
+        )
 
     log.info("Automated analysis python script complete")
