@@ -90,55 +90,6 @@ if __name__ == "__main__":
             f
         )
 
-    # Compute the number of messages, individuals, and relevant messages per episode and overall.
-    log.info("Computing the per-episode and per-season engagement counts...")
-    engagement_counts = OrderedDict()  # of episode name to counts
-    for plan in PipelineConfiguration.RQA_CODING_PLANS:
-        engagement_counts[plan.dataset_name] = {
-            "Episode": plan.dataset_name,
-
-            "Total Messages": "-",  # Can't report this for individual weeks because the data has been overwritten with "STOP"
-            "Total Messages with Opt-Ins": len(AnalysisUtils.filter_opt_ins(messages, CONSENT_WITHDRAWN_KEY, [plan])),
-            "Total Labelled Messages": len(AnalysisUtils.filter_fully_labelled(messages, CONSENT_WITHDRAWN_KEY, [plan])),
-            "Total Relevant Messages": len(AnalysisUtils.filter_relevant(messages, CONSENT_WITHDRAWN_KEY, [plan])),
-
-            "Total Participants": "-",
-            "Total Participants with Opt-Ins": len(AnalysisUtils.filter_opt_ins(individuals, CONSENT_WITHDRAWN_KEY, [plan])),
-            "Total Relevant Participants": len(AnalysisUtils.filter_relevant(individuals, CONSENT_WITHDRAWN_KEY, [plan]))
-        }
-    engagement_counts["Total"] = {
-        "Episode": "Total",
-
-        "Total Messages": len(messages),
-        "Total Messages with Opt-Ins": len(AnalysisUtils.filter_opt_ins(messages, CONSENT_WITHDRAWN_KEY, PipelineConfiguration.RQA_CODING_PLANS)),
-        "Total Labelled Messages": len(AnalysisUtils.filter_partially_labelled(messages, CONSENT_WITHDRAWN_KEY, PipelineConfiguration.RQA_CODING_PLANS)),
-        "Total Relevant Messages": len(AnalysisUtils.filter_relevant(messages, CONSENT_WITHDRAWN_KEY, PipelineConfiguration.RQA_CODING_PLANS)),
-
-        "Total Participants": len(individuals),
-        "Total Participants with Opt-Ins": len(AnalysisUtils.filter_opt_ins(individuals, CONSENT_WITHDRAWN_KEY, PipelineConfiguration.RQA_CODING_PLANS)),
-        "Total Relevant Participants": len(AnalysisUtils.filter_relevant(individuals, CONSENT_WITHDRAWN_KEY, PipelineConfiguration.RQA_CODING_PLANS))
-    }
-
-    with open(f"{automated_analysis_output_dir}/engagement_counts.csv", "w") as f:
-        headers = [
-            "Episode",
-            "Total Messages", "Total Messages with Opt-Ins", "Total Labelled Messages", "Total Relevant Messages",
-            "Total Participants", "Total Participants with Opt-Ins", "Total Relevant Participants"
-        ]
-        writer = csv.DictWriter(f, fieldnames=headers, lineterminator="\n")
-        writer.writeheader()
-
-        for row in engagement_counts.values():
-            writer.writerow(row)
-
-    log.info("Computing repeat participations...")
-    with open(f"{automated_analysis_output_dir}/repeat_participations.csv", "w") as f:
-        repeat_participations.export_repeat_participations_csv(
-            individuals, CONSENT_WITHDRAWN_KEY,
-            coding_plans_to_analysis_configurations(PipelineConfiguration.RQA_CODING_PLANS),
-            f
-        )
-
     log.info(f'Computing repeat and new participation per show ...')
     # Computes the number of new and repeat consented individuals who participated in each radio show.
     # Repeat participants are consented individuals who participated in previous shows prior to the target show.
@@ -231,31 +182,12 @@ if __name__ == "__main__":
 
     # Export raw messages labelled with Meta impact, gratitude and about conversation programmatically known as impact/success story
     log.info("Exporting success story raw messages for each episode...")
-    impact_messages = []  # of dict of code_string_value to avf-uid and raw messages
     success_story_string_values = ["gratitude", "about_conversation", "impact"]
-    for plan in PipelineConfiguration.RQA_CODING_PLANS:
-        for cc in plan.coding_configurations:
-            for msg in messages:
-                if not AnalysisUtils.labelled(msg, CONSENT_WITHDRAWN_KEY, plan):
-                    continue
-
-                for label in msg[cc.coded_field]:
-                    code = cc.code_scheme.get_code_with_code_id(label["CodeID"])
-
-                    if code.string_value in success_story_string_values:
-                        impact_messages.append({
-                            "Dataset": plan.dataset_name,
-                            "UID": msg['uid'],
-                            "Code": code.string_value,
-                            "Raw Message": msg[plan.raw_field]
-                        })
-
     with open(f"{automated_analysis_output_dir}/impact_messages.csv", "w") as f:
-        headers = ["Dataset", "UID", "Code", "Raw Message"]
-        writer = csv.DictWriter(f, fieldnames=headers, lineterminator="\n")
-        writer.writeheader()
-
-        for msg in impact_messages:
-            writer.writerow(msg)
+        sample_messages.export_sample_messages_csv(
+            messages, CONSENT_WITHDRAWN_KEY,
+            coding_plans_to_analysis_configurations(PipelineConfiguration.RQA_CODING_PLANS),
+            f, filter_code_ids=success_story_string_values, limit_per_code=sys.maxsize
+        )
 
     log.info("Automated analysis python script complete")
