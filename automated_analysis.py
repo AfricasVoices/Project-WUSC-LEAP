@@ -9,7 +9,7 @@ from core_data_modules.logging import Logger
 from core_data_modules.traced_data.io import TracedDataJsonIO
 from core_data_modules.util import IOUtils
 from core_data_modules.analysis import AnalysisConfiguration, engagement_counts, theme_distributions, \
-    repeat_participations, sample_messages, traffic_analysis, analysis_utils, traffic_analysis
+    repeat_participations, sample_messages, traffic_analysis, analysis_utils
 
 from src.lib import PipelineConfiguration
 from src import AnalysisUtils
