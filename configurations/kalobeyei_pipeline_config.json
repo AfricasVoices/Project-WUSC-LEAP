@@ -76,7 +76,6 @@
     {"RapidProKey": "Rqa_S01E04 (Time) - wusc_leap_s01e04_kalobeyei_activation", "PipelineKey": "sent_on"},
     {"RapidProKey": "Rqa_S01E05 (Time) - wusc_leap_s01e05_kalobeyei_activation", "PipelineKey": "sent_on"},
 
-
     {"RapidProKey": "Gender (Text) - wusc_keep_ii_kakuma_demogs", "PipelineKey": "gender_raw"},
     {"RapidProKey": "Gender (Time) - wusc_keep_ii_kakuma_demogs", "PipelineKey": "gender_time"},
     {"RapidProKey": "Age (Text) - wusc_keep_ii_kakuma_demogs", "PipelineKey": "age_raw"},
@@ -88,7 +87,6 @@
     {"RapidProKey": "Household_Language (Text) - wusc_keep_ii_kakuma_demogs", "PipelineKey": "household_language_raw"},
     {"RapidProKey": "Household_Language (Time) - wusc_keep_ii_kakuma_demogs", "PipelineKey": "household_language_time"},
 
-
     {"RapidProKey": "Gender (Text) - wusc_covid19_adaptation_kakuma_demogs", "PipelineKey": "gender_raw"},
     {"RapidProKey": "Gender (Time) - wusc_covid19_adaptation_kakuma_demogs", "PipelineKey": "gender_time"},
     {"RapidProKey": "Age (Text) - wusc_covid19_adaptation_kakuma_demogs", "PipelineKey": "age_raw"},
@@ -99,7 +97,6 @@
     {"RapidProKey": "Nationality (Time) - wusc_covid19_adaptation_kakuma_demogs", "PipelineKey": "nationality_time"},
     {"RapidProKey": "Household_Language (Text) - wusc_covid19_adaptation_kakuma_demogs", "PipelineKey": "household_language_raw"},
     {"RapidProKey": "Household_Language (Time) - wusc_covid19_adaptation_kakuma_demogs", "PipelineKey": "household_language_time"},
-
 
     {"RapidProKey": "Gender (Text) - wusc_keep_ii_s02_kakuma_demogs", "PipelineKey": "gender_raw"},
     {"RapidProKey": "Gender (Time) - wusc_keep_ii_s02_kakuma_demogs", "PipelineKey": "gender_time"},
@@ -122,18 +119,18 @@
     {"RapidProKey": "Nationality (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "nationality_time"},
     {"RapidProKey": "Household_Language (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "household_language_raw"},
     {"RapidProKey": "Household_Language (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "household_language_time"},
-    {"RapidProKey": "Participants_Engaging (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "participants_engaging_raw"},
-    {"RapidProKey": "Participants_Engaging (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "participants_engaging_time"},
-    {"RapidProKey": "Targeted_Group_Parent (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "targeted_group_parent_raw"},
-    {"RapidProKey": "Targeted_Group_Parent (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "targeted_group_parent_time"},
-    {"RapidProKey": "Child_Gender (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "child_gender_raw"},
-    {"RapidProKey": "Child_Gender (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "child_gender_time"},
-    {"RapidProKey": "Consent_To_Engage_Child (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "consent_to_engage_child_raw"},
-    {"RapidProKey": "Consent_To_Engage_Child (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "consent_to_engage_child_time"},
-    {"RapidProKey": "Age_Of_Parent (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "age_of_parent_raw"},
-    {"RapidProKey": "Age_Of_Parent (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "age_of_parent_time"},
-    {"RapidProKey": "Currently_In_School (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "currently_in_school_raw"},
-    {"RapidProKey": "Currently_In_School (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "currently_in_school_time"}
+    {"RapidProKey": "Participants_Engaging (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "kalobeyei_participants_engaging_raw"},
+    {"RapidProKey": "Participants_Engaging (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "kalobeyei_participants_engaging_time"},
+    {"RapidProKey": "Targeted_Group_Parent (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "kalobeyei_targeted_group_parent_raw"},
+    {"RapidProKey": "Targeted_Group_Parent (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "kalobeyei_targeted_group_parent_time"},
+    {"RapidProKey": "Child_Gender (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "kalobeyei_child_gender_raw"},
+    {"RapidProKey": "Child_Gender (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "kalobeyei_child_gender_time"},
+    {"RapidProKey": "Consent_To_Engage_Child (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "kalobeyei_consent_to_engage_child_raw"},
+    {"RapidProKey": "Consent_To_Engage_Child (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "kalobeyei_consent_to_engage_child_time"},
+    {"RapidProKey": "Age_Of_Parent (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "kalobeyei_age_of_parent_raw"},
+    {"RapidProKey": "Age_Of_Parent (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "kalobeyei_age_of_parent_time"},
+    {"RapidProKey": "Currently_In_School (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "kalobeyei_currently_in_school_raw"},
+    {"RapidProKey": "Currently_In_School (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "kalobeyei_currently_in_school_time"}
   ],
 
   "PipelineName": "leap_kalobeyei_s01_pipeline",
@@ -141,6 +138,45 @@
   "ProjectEndDate": "2100-01-01T00:00:00+03:00",
   "FilterTestMessages": true,
   "MoveWSMessages": true,
+  "AutomatedAnalysis": {
+    "TrafficLabels": [
+      {"StartDate": "2021-02-19T19:30+03:00", "EndDate": "2020-02-20T16:30+03:00", "Label": "E01 Ad"},
+      {"StartDate": "2020-02-20T16:30+03:00", "EndDate": "2020-02-20T18:30+03:00", "Label": "E01 Juba-live"},
+      {"StartDate": "2020-02-21T16:00+03:00", "EndDate": "2020-02-21T18:00+03:00", "Label": "E01 Kiswahili-live"},
+      {"StartDate": "2020-02-21T20:00+03:00", "EndDate": "2020-02-21T22:00+03:00", "Label": "E01 Kiswahili-repeat"},
+      {"StartDate": "2020-02-22T20:00+03:00", "EndDate": "2020-02-22T22:00+03:00", "Label": "E01 Juba-repeat"},
+
+      {"StartDate": "2021-02-26T19:30+03:00", "EndDate": "2020-02-27T16:00+03:00", "Label": "E02 Ad"},
+      {"StartDate": "2020-02-27T16:00+03:00", "EndDate": "2020-02-27T18:00+03:00", "Label": "E02 Juba-live"},
+      {"StartDate": "2020-02-28T16:00+03:00", "EndDate": "2020-02-28T18:00+03:00", "Label": "E02 Kiswahili-live"},
+      {"StartDate": "2020-02-28T20:00+03:00", "EndDate": "2020-02-28T22:00+03:00", "Label": "E02 Kiswahili-repeat"},
+      {"StartDate": "2020-02-22T20:00+03:00", "EndDate": "2020-02-22T22:00+03:00", "Label": "E02 Juba-repeat"},
+
+      {"StartDate": "2021-03-05T19:30+03:00", "EndDate": "2020-03-06T16:00+03:00", "Label": "E03 Ad"},
+      {"StartDate": "2020-03-06T16:00+03:00", "EndDate": "2020-03-06T18:00+03:00", "Label": "E03 Juba-live"},
+      {"StartDate": "2020-03-07T16:00+03:00", "EndDate": "2020-03-07T18:00+03:00", "Label": "E03 Kiswahili-live"},
+      {"StartDate": "2020-03-07T20:00+03:00", "EndDate": "2020-03-07T22:00+03:00", "Label": "E03 Kiswahili-repeat"},
+      {"StartDate": "2020-03-08T20:00+03:00", "EndDate": "2020-03-08T22:00+03:00", "Label": "E03 Juba-repeat"},
+
+      {"StartDate": "2021-03-12T19:30+03:00", "EndDate": "2020-03-13T16:00+03:00", "Label": "E04 Ad"},
+      {"StartDate": "2020-03-13T16:00+03:00", "EndDate": "2020-03-13T18:00+03:00", "Label": "E04 Juba-live"},
+      {"StartDate": "2020-03-14T16:00+03:00", "EndDate": "2020-03-14T18:00+03:00", "Label": "E04 Kiswahili-live"},
+      {"StartDate": "2020-03-14T20:00+03:00", "EndDate": "2020-03-14T22:00+03:00", "Label": "E04 Kiswahili-repeat"},
+      {"StartDate": "2020-03-15T20:00+03:00", "EndDate": "2020-03-15T22:00+03:00", "Label": "E04 Juba-repeat"},
+
+      {"StartDate": "2021-03-19T19:30+03:00", "EndDate": "2020-03-19T16:00+03:00", "Label": "E05 Ad"},
+      {"StartDate": "2020-03-20T16:00+03:00", "EndDate": "2020-03-20T18:00+03:00", "Label": "E05 Juba-live"},
+      {"StartDate": "2020-03-21T16:00+03:00", "EndDate": "2020-03-21T18:00+03:00", "Label": "E05 Kiswahili-live"},
+      {"StartDate": "2020-03-21T20:00+03:00", "EndDate": "2020-03-21T22:00+03:00", "Label": "E05 Kiswahili-repeat"},
+      {"StartDate": "2020-03-22T20:00+03:00", "EndDate": "2020-03-22T22:00+03:00", "Label": "E05 Juba-repeat"},
+
+      {"StartDate": "2021-03-26T19:30+03:00", "EndDate": "2020-03-26T16:00+03:00", "Label": "E06 Ad"},
+      {"StartDate": "2020-03-27T16:00+03:00", "EndDate": "2020-03-27T18:00+03:00", "Label": "E06 Juba-live"},
+      {"StartDate": "2020-03-28T16:00+03:00", "EndDate": "2020-03-28T18:00+03:00", "Label": "E06 Kiswahili-live"},
+      {"StartDate": "2020-03-28T20:00+03:00", "EndDate": "2020-03-28T22:00+03:00", "Label": "E06 Kiswahili-repeat"},
+      {"StartDate": "2020-03-29T20:00+03:00", "EndDate": "2020-03-29T22:00+03:00", "Label": "E06 Juba-repeat"}
+    ]
+  },
   "DriveUpload": {
     "DriveCredentialsFileURL": "gs://avf-credentials/pipeline-runner-service-acct-avf-data-core-64cc71459fe7.json",
     "ProductionUploadPath": "wusc_leap_analysis_outputs/kalobeyei/s01/production.csv",
