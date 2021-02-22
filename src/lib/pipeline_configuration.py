@@ -18,7 +18,7 @@ class PipelineConfiguration(object):
 
     def __init__(self, raw_data_sources, phone_number_uuid_table, operations_dashboard, timestamp_remappings,
                  rapid_pro_key_remappings, project_start_date, project_end_date, filter_test_messages, move_ws_messages,
-                 memory_profile_upload_bucket, data_archive_upload_bucket, bucket_dir_path, pipeline_name=None,
+                 memory_profile_upload_bucket, data_archive_upload_bucket, bucket_dir_path, automated_analysis, pipeline_name=None,
                  drive_upload=None, listening_group_csv_urls=None):
         """
         :param raw_data_sources: List of sources to pull the various raw run files from.
@@ -49,6 +49,8 @@ class PipelineConfiguration(object):
         :type data_archive_upload_bucket: str
         :param bucket_dir_path: The GS bucket folder path to store the data archive & memory log files to.
         :type bucket_dir_path: str
+        :param automated_analysis: Different Automated analysis Script Configurations
+        :type automated_analysis: AutomatedAnalysis
         :param pipeline_name: The name of the pipeline to run.
         :type pipeline_name: str | None
         :param drive_upload: Configuration for uploading to Google Drive, or None.
@@ -69,6 +71,7 @@ class PipelineConfiguration(object):
         self.memory_profile_upload_bucket = memory_profile_upload_bucket
         self.data_archive_upload_bucket = data_archive_upload_bucket
         self.bucket_dir_path = bucket_dir_path
+        self.automated_analysis = automated_analysis
         self.pipeline_name = pipeline_name
         self.drive_upload = drive_upload
         self.listening_group_csv_urls = listening_group_csv_urls
@@ -116,6 +119,8 @@ class PipelineConfiguration(object):
         data_archive_upload_bucket = configuration_dict["DataArchiveUploadURLPrefix"]
         bucket_dir_path = configuration_dict["BucketDirPath"]
 
+        automated_analysis = AutomatedAnalysis.from_configuration_dict(configuration_dict["AutomatedAnalysis"])
+
         pipeline_name = configuration_dict.get("PipelineName")
 
         drive_upload_paths = None
@@ -127,7 +132,7 @@ class PipelineConfiguration(object):
         return cls(raw_data_sources, phone_number_uuid_table, operations_dashboard, timestamp_remappings,
                    rapid_pro_key_remappings, project_start_date, project_end_date, filter_test_messages,
                    move_ws_messages, memory_profile_upload_bucket, data_archive_upload_bucket, bucket_dir_path,
-                   pipeline_name, drive_upload_paths, listening_group_csv_urls)
+                   automated_analysis, pipeline_name, drive_upload_paths, listening_group_csv_urls)
 
     @classmethod
     def from_configuration_file(cls, f):
@@ -467,3 +472,47 @@ class DriveUpload(object):
         validators.validate_string(self.messages_upload_path, "messages_upload_path")
         validators.validate_string(self.individuals_upload_path, "individuals_upload_path")
         validators.validate_string(self.automated_analysis_dir, "automated_analysis_dir")
+
+class AutomatedAnalysis(object):
+    def __init__(self, traffic_labels=None):
+
+        self.traffic_labels = traffic_labels
+
+        self.validate()
+
+    @classmethod
+    def from_configuration_dict(cls, configuration_dict):
+        traffic_labels = configuration_dict.get("TrafficLabels")
+        if traffic_labels is not None:
+            traffic_labels = [TrafficLabel.from_configuration_dict(d) for d in traffic_labels]
+
+        return cls(traffic_labels)
+
+    def validate(self):
+
+        if self.traffic_labels is not None:
+            assert isinstance(self.traffic_labels, list)
+            for tl in self.traffic_labels:
+                assert isinstance(tl, TrafficLabel)
+                tl.validate()
+
+class TrafficLabel(object):
+    def __init__(self, label, start_date, end_date):
+        self.label = label
+        self.start_date = start_date
+        self.end_date = end_date
+
+        self.validate()
+
+    @classmethod
+    def from_configuration_dict(cls, configuration_dict):
+        label = configuration_dict["Label"]
+        start_date = isoparse(configuration_dict["StartDate"])
+        end_date = isoparse(configuration_dict["EndDate"])
+
+        return cls(label, start_date, end_date)
+
+    def validate(self):
+        validators.validate_string(self.label, "label")
+        validators.validate_datetime(self.start_date, "start_date")
+        validators.validate_datetime(self.end_date, "end_date")
