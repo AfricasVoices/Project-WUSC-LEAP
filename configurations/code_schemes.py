@@ -32,3 +32,6 @@ class CodeSchemes(object):
     KALOBEYEI_CURRENTLY_IN_SCHOOL = _open_scheme("kalobeyei_currently_in_school.json")
 
     KAKUMA_WS_CORRECT_DATASET = _open_scheme("kakuma_ws_correct_dataset.json")
+
+    ENGAGEMENT_TYPE = _open_scheme("engagement_type.json")
+

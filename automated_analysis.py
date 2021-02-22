@@ -9,9 +9,10 @@ from core_data_modules.logging import Logger
 from core_data_modules.traced_data.io import TracedDataJsonIO
 from core_data_modules.util import IOUtils
 from core_data_modules.analysis import AnalysisConfiguration, engagement_counts, theme_distributions, \
-    repeat_participations, sample_messages, traffic_analysis, analysis_utils, traffic_analysis
+    repeat_participations, sample_messages, traffic_analysis, analysis_utils
 
 from src.lib import PipelineConfiguration
+from src.lib.configuration_objects import CodingModes
 from src import AnalysisUtils
 
 log = Logger(__name__)
@@ -189,5 +190,35 @@ if __name__ == "__main__":
             coding_plans_to_analysis_configurations(PipelineConfiguration.RQA_CODING_PLANS),
             f, filter_code_ids=success_story_string_values, limit_per_code=sys.maxsize
         )
+    log.info(f"Computing the estimated engagement types...")
+    stats = []
+    for (plan, rqa_plan) in zip(PipelineConfiguration.ENGAGEMENT_CODING_PLANS, PipelineConfiguration.RQA_CODING_PLANS):
+        opt_ins = analysis_utils.filter_opt_ins(messages, CONSENT_WITHDRAWN_KEY,
+                                                coding_plans_to_analysis_configurations([rqa_plan]))
+        relevant = analysis_utils.filter_relevant(messages, CONSENT_WITHDRAWN_KEY,
+                                                  coding_plans_to_analysis_configurations([rqa_plan]))
+
+        for cc in plan.coding_configurations:
+            assert cc.coding_mode == CodingModes.SINGLE
+
+            for code in cc.code_scheme.codes:
+                if code.control_code == Codes.STOP:
+                    continue
+
+                stats.append({
+                    "Episode": plan.dataset_name,
+                    "Estimated Engagement Type": code.string_value,
+                    "Messages with Opt-Ins": len(
+                        [msg for msg in opt_ins if msg[cc.coded_field]["CodeID"] == code.code_id]),
+                    "Relevant Messages": len([msg for msg in relevant if msg[cc.coded_field]["CodeID"] == code.code_id])
+                })
+
+    with open(f"{automated_analysis_output_dir}/estimated_engagement_types.csv", "w") as f:
+        headers = ["Episode", "Estimated Engagement Type", "Messages with Opt-Ins", "Relevant Messages"]
+        writer = csv.DictWriter(f, fieldnames=headers, lineterminator="\n")
+        writer.writeheader()
+
+        for row in stats:
+            writer.writerow(row)
 
     log.info("Automated analysis python script complete")

@@ -1,5 +1,6 @@
 from core_data_modules.cleaners import somali, swahili, Codes
 from core_data_modules.traced_data.util.fold_traced_data import FoldStrategies
+from dateutil.parser import isoparse
 
 from configurations import code_imputation_functions
 from configurations.code_schemes import CodeSchemes
@@ -17,6 +18,50 @@ def clean_age_with_range_filter(text):
         #       NC in the case where age is an int but is out of range
     else:
         return Codes.NOT_CODED
+
+def clean_engagement_type(sent_on, episode):
+    time_ranges = [
+        ["s01e01", "radio_promo", "2020-02-18T08:00+03:00", "2020-02-19T19:30+03:00"],
+        ["s01e01", "sms_ad",      "2021-02-19T19:30+03:00", "2020-02-20T16:30+03:00"],
+        ["s01e01", "radio_show",  "2020-02-20T16:30+03:00", "2020-02-20T18:30+03:00"],
+        ["s01e01", "radio_show",  "2020-02-21T16:00+03:00", "2020-02-21T18:00+03:00"],
+        ["s01e01", "radio_show",  "2020-02-21T20:00+03:00", "2020-02-21T22:00+03:00"],
+        ["s01e01", "radio_show",  "2020-02-22T20:00+03:00", "2020-02-22T22:00+03:00"],
+
+        ["s01e02", "radio_promo", "2020-02-25T08:00+03:00", "2020-02-26T19:30+03:00"],
+        ["s01e02", "sms_ad", "2021-02-26T19:30+03:00", "2020-02-27T16:00+03:00"],
+        ["s01e02", "radio_show", "2020-02-27T16:00+03:00", "2020-02-27T18:00+03:00"],
+        ["s01e02", "radio_show", "2020-02-28T16:00+03:00", "2020-02-28T18:00+03:00"],
+        ["s01e02", "radio_show", "2020-02-28T20:00+03:00", "2020-02-28T22:00+03:00"],
+        ["s01e02", "radio_show", "2020-02-22T20:00+03:00", "2020-02-22T22:00+03:00"],
+
+        ["s01e03", "radio_promo", "2020-03-04T08:00+03:00", "2020-03-04T19:30+03:00"],
+        ["s01e03", "sms_ad", "2021-03-05T19:30+03:00", "2020-03-06T16:00+03:00"],
+        ["s01e03", "radio_show", "2020-03-06T16:00+03:00", "2020-03-06T18:00+03:00"],
+        ["s01e03", "radio_show", "2020-03-07T16:00+03:00", "2020-03-07T18:00+03:00"],
+        ["s01e03", "radio_show", "2020-03-07T20:00+03:00", "2020-03-07T22:00+03:00"],
+        ["s01e03", "radio_show", "2020-03-08T20:00+03:00", "2020-03-08T22:00+03:00"],
+
+        ["s01e04", "radio_promo", "2020-03-11T08:00+03:00", "2020-03-12T19:30+03:00"],
+        ["s01e04", "sms_ad", "2021-03-12T19:30+03:00", "2020-03-13T16:00+03:00"],
+        ["s01e04", "radio_show", "2020-03-13T16:00+03:00", "2020-03-13T18:00+03:00"],
+        ["s01e04", "radio_show", "2020-03-14T16:00+03:00", "2020-03-14T18:00+03:00"],
+        ["s01e04", "radio_show", "2020-03-14T20:00+03:00", "2020-03-14T22:00+03:00"],
+        ["s01e04", "radio_show", "2020-03-15T20:00+03:00", "2020-03-15T22:00+03:00"],
+
+        ["s01e04", "radio_promo", "2020-03-18T08:00+03:00", "2020-03-18T19:30+03:00"],
+        ["s01e04", "sms_ad", "2021-03-19T19:30+03:00", "2020-03-19T16:00+03:00"],
+        ["s01e04", "radio_show", "2020-03-20T16:00+03:00", "2020-03-20T18:00+03:00"],
+        ["s01e04", "radio_show", "2020-03-21T16:00+03:00", "2020-03-21T18:00+03:00"],
+        ["s01e04", "radio_show", "2020-03-21T20:00+03:00", "2020-03-21T22:00+03:00"],
+        ["s01e04", "radio_show", "2020-03-22T20:00+03:00", "2020-03-22T22:00+03:00"],
+    ]
+
+    for time_range in time_ranges:
+        if episode == time_range[0] and isoparse(time_range[2]) <= sent_on < isoparse(time_range[3]):
+            return time_range[1]
+
+    return Codes.TRUE_MISSING
 
 
 KALOBEYEI_S01_RQA_CODING_PLANS = [
@@ -337,3 +382,86 @@ def get_ws_correct_dataset_scheme(pipeline_name):
 
 def get_follow_up_coding_plans(pipeline_name):
     return KALOBEYEI_S01_FOLLOW_UP_CODING_PLANS
+
+def get_engagement_coding_plans(pipeline_name):
+        return [
+            CodingPlan(dataset_name="rqa_s01e01",
+                       raw_field="sent_on",
+                       coding_configurations=[
+                           CodingConfiguration(
+                               coding_mode=CodingModes.SINGLE,
+                               code_scheme=CodeSchemes.ENGAGEMENT_TYPE,
+                               cleaner=lambda sent_on: clean_engagement_type(isoparse(sent_on), "rqa_s01e01"),
+                               coded_field="rqa_s01e01_engagement_type_coded",
+                               analysis_file_key="rqa_s01e01_engagement_type",
+                               fold_strategy=None,
+                               include_in_individuals_file=False,
+                               include_in_theme_distribution=False
+                           )
+                       ],
+                       raw_field_fold_strategy=FoldStrategies.concatenate),
+
+            CodingPlan(dataset_name="rqa_s01e02",
+                       raw_field="sent_on",
+                       coding_configurations=[
+                           CodingConfiguration(
+                               coding_mode=CodingModes.SINGLE,
+                               code_scheme=CodeSchemes.ENGAGEMENT_TYPE,
+                               cleaner=lambda sent_on: clean_engagement_type(isoparse(sent_on), "rqa_s01e02"),
+                               coded_field="rqa_s01e02_engagement_type_coded",
+                               analysis_file_key="rqa_s01e02_engagement_type",
+                               fold_strategy=None,
+                               include_in_individuals_file=False,
+                               include_in_theme_distribution=False
+                           )
+                       ],
+                       raw_field_fold_strategy=FoldStrategies.concatenate),
+
+            CodingPlan(dataset_name="rqa_s01e03",
+                       raw_field="sent_on",
+                       coding_configurations=[
+                           CodingConfiguration(
+                               coding_mode=CodingModes.SINGLE,
+                               code_scheme=CodeSchemes.ENGAGEMENT_TYPE,
+                               cleaner=lambda sent_on: clean_engagement_type(isoparse(sent_on), "rqa_s01e03"),
+                               coded_field="rqa_s01e03_engagement_type_coded",
+                               analysis_file_key="rqa_s01e03_engagement_type",
+                               fold_strategy=None,
+                               include_in_individuals_file=False,
+                               include_in_theme_distribution=False
+                           )
+                       ],
+                       raw_field_fold_strategy=FoldStrategies.concatenate),
+
+            CodingPlan(dataset_name="rqa_s01e04",
+                       raw_field="sent_on",
+                       coding_configurations=[
+                           CodingConfiguration(
+                               coding_mode=CodingModes.SINGLE,
+                               code_scheme=CodeSchemes.ENGAGEMENT_TYPE,
+                               cleaner=lambda sent_on: clean_engagement_type(isoparse(sent_on), "rqa_s01e04"),
+                               coded_field="rqa_s01e04_engagement_type_coded",
+                               analysis_file_key="rqa_s01e04_engagement_type",
+                               fold_strategy=None,
+                               include_in_individuals_file=False,
+                               include_in_theme_distribution=False
+                           )
+                       ],
+                       raw_field_fold_strategy=FoldStrategies.concatenate),
+
+            CodingPlan(dataset_name="rqa_s01e05",
+                       raw_field="sent_on",
+                       coding_configurations=[
+                           CodingConfiguration(
+                               coding_mode=CodingModes.SINGLE,
+                               code_scheme=CodeSchemes.ENGAGEMENT_TYPE,
+                               cleaner=lambda sent_on: clean_engagement_type(isoparse(sent_on), "rqa_s01e05"),
+                               coded_field="rqa_s01e05_engagement_type_coded",
+                               analysis_file_key="rqa_s01e05_engagement_type",
+                               fold_strategy=None,
+                               include_in_individuals_file=False,
+                               include_in_theme_distribution=False
+                           )
+                       ],
+                       raw_field_fold_strategy=FoldStrategies.concatenate)
+        ]

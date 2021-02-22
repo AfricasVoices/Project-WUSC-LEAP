@@ -76,8 +76,10 @@ class PipelineConfiguration(object):
         PipelineConfiguration.RQA_CODING_PLANS = coding_plans.get_rqa_coding_plans(self.pipeline_name)
         PipelineConfiguration.DEMOG_CODING_PLANS = coding_plans.get_demog_coding_plans(self.pipeline_name)
         PipelineConfiguration.FOLLOW_UP_CODING_PLANS = coding_plans.get_follow_up_coding_plans(self.pipeline_name)
+        PipelineConfiguration.ENGAGEMENT_CODING_PLANS = coding_plans.get_engagement_coding_plans(self.pipeline_name)
         PipelineConfiguration.SURVEY_CODING_PLANS += PipelineConfiguration.DEMOG_CODING_PLANS
         PipelineConfiguration.SURVEY_CODING_PLANS += PipelineConfiguration.FOLLOW_UP_CODING_PLANS
+        PipelineConfiguration.SURVEY_CODING_PLANS += PipelineConfiguration.ENGAGEMENT_CODING_PLANS
         PipelineConfiguration.WS_CORRECT_DATASET_SCHEME = coding_plans.get_ws_correct_dataset_scheme(self.pipeline_name)
 
         self.validate()
