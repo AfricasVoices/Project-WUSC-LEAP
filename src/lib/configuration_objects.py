@@ -5,7 +5,7 @@ class CodingModes(object):
 
 class CodingConfiguration(object):
     def __init__(self, coding_mode, code_scheme, coded_field, fold_strategy, analysis_file_key=None, cleaner=None,
-                 include_in_theme_distribution=False):
+                 include_in_theme_distribution=False, include_in_individuals_file=True):
         assert coding_mode in {CodingModes.SINGLE, CodingModes.MULTIPLE}
 
         self.coding_mode = coding_mode
@@ -15,6 +15,7 @@ class CodingConfiguration(object):
         self.fold_strategy = fold_strategy
         self.cleaner = cleaner
         self.include_in_theme_distribution = include_in_theme_distribution
+        self.include_in_individuals_file = include_in_individuals_file
 
 
 # TODO: Rename CodingPlan to something like DatasetConfiguration?
