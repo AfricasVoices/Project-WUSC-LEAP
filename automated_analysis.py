@@ -18,6 +18,7 @@ log = Logger(__name__)
 
 IMG_SCALE_FACTOR = 10  # Increase this to increase the resolution of the outputted PNGs
 CONSENT_WITHDRAWN_KEY = "consent_withdrawn"
+SENT_ON_KEY = "sent_on"
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Runs automated analysis over the outputs produced by "
@@ -188,6 +189,17 @@ if __name__ == "__main__":
             messages, CONSENT_WITHDRAWN_KEY,
             coding_plans_to_analysis_configurations(PipelineConfiguration.RQA_CODING_PLANS),
             f, filter_code_ids=success_story_string_values, limit_per_code=sys.maxsize
+        )
+
+    if pipeline_configuration.automated_analysis.traffic_labels is not None:
+        log.info("Exporting traffic analysis...")
+    with open(f"{automated_analysis_output_dir}/traffic_analysis.csv", "w") as f:
+        traffic_analysis.export_traffic_analysis_csv(
+            messages, CONSENT_WITHDRAWN_KEY,
+            coding_plans_to_analysis_configurations(PipelineConfiguration.RQA_CODING_PLANS),
+            SENT_ON_KEY,
+            pipeline_configuration.automated_analysis.traffic_labels,
+            f
         )
 
     log.info("Automated analysis python script complete")
