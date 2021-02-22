@@ -221,7 +221,7 @@ KAKUMA_DEMOG_CODING_PLANS = [
                ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("kakuma nationality"),
                raw_field_fold_strategy=FoldStrategies.assert_equal),
 
-    CodingPlan(raw_field="participants_engaging_raw",
+    CodingPlan(raw_field="kalobeyei_participants_engaging_raw",
                dataset_name="kalobeyei_participants_engaging",
                time_field="kalobeyei_participants_engaging_time",
                coda_filename="WUSC-LEAP_kalobeyei_participants_engaging.json",
