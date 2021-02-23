@@ -28,6 +28,14 @@
       "VisibleInCoda": true
     },
     {
+        "CodeID": "code-53137045",
+        "CodeType": "Normal",
+        "DisplayText": "kalobeyei",
+        "NumericValue": 2,
+        "StringValue": "kalobeyei",
+        "VisibleInCoda": true
+    },
+    {
       "CodeID": "code-4adda802",
       "CodeType": "Normal",
       "DisplayText": "other",
