@@ -10,15 +10,6 @@ RapidProTools = {editable = true,git = "https://www.github.com/AfricasVoices/Rap
 pytz = "*"
 python-dateutil = ">=2.8.0"  # Need this minimum so that isoparse handles T24:00:00 correctly.
 google-cloud-storage = "*"
-pyinstrument = "*"
-plotly = "*"
-requests = "*"  # Needed by plotly's image exporter.
-psutil = "*"  # Needed by plotly's image exporter.
-pandas = "*"  # Needed by plotly's express library.
-matplotlib = "*"  # Needed by geopandas to plot maps.
-geopandas = "*"
-descartes = "*"  # Needed by geopandas to plot polygons.
-mapclassify = "*"  # Needed by geopandas for choropleth classification
 
 [dev-packages]
 
