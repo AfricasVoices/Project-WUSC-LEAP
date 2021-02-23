@@ -13,7 +13,6 @@ from src import LoadData, TranslateRapidProKeys, AutoCode, ProductionFile, \
 from src.lib import PipelineConfiguration, MessageFilters
 from configurations.code_schemes import CodeSchemes
 
-Logger.set_project_name("WUSC-KEEP-II")
 log = Logger(__name__)
 
 if __name__ == "__main__":
