@@ -1,62 +1,82 @@
-import sys
-import time
+import csv
 from collections import OrderedDict
+import sys
 
 from core_data_modules.cleaners import Codes
-from core_data_modules.traced_data import Metadata
-from core_data_modules.traced_data.io import TracedDataCSVIO
 from core_data_modules.traced_data.util import FoldTracedData
 from core_data_modules.traced_data.util.fold_traced_data import FoldStrategies
-from core_data_modules.util import TimeUtils
 
 from src.lib import PipelineConfiguration, ConsentUtils, ListeningGroups
 from src.lib.configuration_objects import CodingModes
 
+MESSAGES_FILE = "messages_file"
+INDIVIDUALS_FILE = "individuals_file"
+
 
 class AnalysisFile(object):
     @staticmethod
-    def export_to_csv(user, data, pipeline_configuration, raw_data_dir, csv_path, export_keys, consent_withdrawn_key):
-        # Convert codes to their string/matrix values
-        for td in data:
-            analysis_dict = dict()
-            for plan in PipelineConfiguration.RQA_CODING_PLANS + PipelineConfiguration.SURVEY_CODING_PLANS:
-                for cc in plan.coding_configurations:
-                    if cc.analysis_file_key is None:
-                        continue
-
-                    if cc.coding_mode == CodingModes.SINGLE:
-                        analysis_dict[cc.analysis_file_key] = \
-                            cc.code_scheme.get_code_with_code_id(td[cc.coded_field]["CodeID"]).string_value
-                    else:
-                        assert cc.coding_mode == CodingModes.MULTIPLE
-                        show_matrix_keys = []
-                        for code in cc.code_scheme.codes:
-                            show_matrix_keys.append(f"{cc.analysis_file_key}{code.string_value}")
-
-                        for label in td[cc.coded_field]:
-                            code_string_value = cc.code_scheme.get_code_with_code_id(label["CodeID"]).string_value
-                            analysis_dict[f"{cc.analysis_file_key}{code_string_value}"] = Codes.MATRIX_1
-
-                        for key in show_matrix_keys:
-                            if key not in analysis_dict:
-                                analysis_dict[key] = Codes.MATRIX_0
-            td.append_data(analysis_dict,
-                           Metadata(user, Metadata.get_call_location(), TimeUtils.utc_now_as_iso_string()))
-
-        # Tag listening group participants
-        ListeningGroups.tag_listening_groups_participants(user, data, pipeline_configuration, raw_data_dir)
-
-        # Hide data from participants who opted out
-        ConsentUtils.set_stopped(user, data, consent_withdrawn_key, additional_keys=export_keys)
+    def export_to_csv(analysis_file_type, data, csv_path, export_keys, consent_withdrawn_key):
+        # De-duplicate export keys
+        _export_keys = export_keys
+        export_keys = []
+        for key in _export_keys:
+            if key not in export_keys:
+                export_keys.append(key)
 
         with open(csv_path, "w") as f:
-            TracedDataCSVIO.export_traced_data_iterable_to_csv(data, f, headers=export_keys)
+            writer = csv.DictWriter(f, fieldnames=export_keys, lineterminator="\n")
+            writer.writeheader()
+
+            for td in data:
+                analysis_dict = dict()
+
+                # If consent was withdrawn, export the uid and consent_withdrawn_key.
+                # Export "STOP" for every other variable.
+                if td[consent_withdrawn_key] == Codes.TRUE:
+                    analysis_dict = {k: Codes.STOP for k in export_keys}
+                    analysis_dict["uid"] = td["uid"]
+                    analysis_dict[consent_withdrawn_key] = td[consent_withdrawn_key]
+                    writer.writerow(analysis_dict)
+                    continue
+
+                # Convert codes to their string/matrix values for export.
+                for plan in PipelineConfiguration.RQA_CODING_PLANS + PipelineConfiguration.SURVEY_CODING_PLANS:
+                    for cc in plan.coding_configurations:
+                        if cc.analysis_file_key is None:
+                            continue
+
+                        if analysis_file_type == INDIVIDUALS_FILE and not cc.include_in_individuals_file:
+                            continue
+
+                        if cc.coding_mode == CodingModes.SINGLE:
+                            analysis_dict[cc.analysis_file_key] = \
+                                cc.code_scheme.get_code_with_code_id(td[cc.coded_field]["CodeID"]).string_value
+                        else:
+                            assert cc.coding_mode == CodingModes.MULTIPLE
+                            show_matrix_keys = []
+                            for code in cc.code_scheme.codes:
+                                show_matrix_keys.append(f"{cc.analysis_file_key}_{code.string_value}")
+
+                            for label in td[cc.coded_field]:
+                                code_string_value = cc.code_scheme.get_code_with_code_id(label["CodeID"]).string_value
+                                analysis_dict[f"{cc.analysis_file_key}_{code_string_value}"] = Codes.MATRIX_1
+
+                            for key in show_matrix_keys:
+                                if key not in analysis_dict:
+                                    analysis_dict[key] = Codes.MATRIX_0
+
+                # Prepare all the other values, which don't need converting to strings, for export.
+                for key in export_keys:
+                    if key not in analysis_dict and key in td:
+                        analysis_dict[key] = td[key]
+
+                writer.writerow(analysis_dict)
 
     @classmethod
-    def generate(cls, user, data, pipeline_configuration, raw_data_dir,  csv_by_message_output_path, csv_by_individual_output_path):
+    def generate(cls, user, data, pipeline_configuration, raw_data_dir, csv_by_message_output_path, csv_by_individual_output_path):
         # Serializer is currently overflowing
         # TODO: Investigate/address the cause of this.
-        # sys.setrecursionlimit(15000)
+        sys.setrecursionlimit(15000)
 
         # Set consent withdrawn based on presence of data coded as "stop"
         consent_withdrawn_key = "consent_withdrawn"
@@ -72,15 +92,9 @@ class AnalysisFile(object):
 
         export_keys = ["uid", consent_withdrawn_key]
 
-        # Export listening group bool keys in analysis files headers only when running kalobeyei_pipeline because
-        # dadaab does not have listening groups.
-        if pipeline_configuration.pipeline_name in ["leap_kalobeyei_s01_pipeline"]:
-            export_keys.append("repeat_listening_group_participant")
-            for plan in PipelineConfiguration.RQA_CODING_PLANS:
-                export_keys.extend([f'{plan.dataset_name}_listening_group_participant'])
-        else:
-            assert pipeline_configuration.pipeline_name in ["leap_dadaab_s01_pipeline"],\
-                "PipelineName must be either a 'seasonal pipeline' or 'all seasons pipeline'"
+        # Export listening group bool keys in analysis files headers
+        for plan in PipelineConfiguration.RQA_CODING_PLANS:
+            export_keys.extend([f'{plan.dataset_name}_listening_group_participant'])
 
         for plan in PipelineConfiguration.RQA_CODING_PLANS + PipelineConfiguration.SURVEY_CODING_PLANS:
             for cc in plan.coding_configurations:
@@ -92,9 +106,10 @@ class AnalysisFile(object):
                 else:
                     assert cc.coding_mode == CodingModes.MULTIPLE
                     for code in cc.code_scheme.codes:
-                        export_keys.append(f"{cc.analysis_file_key}{code.string_value}")
+                        export_keys.append(f"{cc.analysis_file_key}_{code.string_value}")
 
-                fold_strategies[cc.coded_field] = cc.fold_strategy
+                if cc.include_in_individuals_file:
+                    fold_strategies[cc.coded_field] = cc.fold_strategy
 
             export_keys.append(plan.raw_field)
             fold_strategies[plan.raw_field] = plan.raw_field_fold_strategy
@@ -108,7 +123,13 @@ class AnalysisFile(object):
             user, to_be_folded, lambda td: td["uid"], fold_strategies
         )
 
-        cls.export_to_csv(user, data, pipeline_configuration, raw_data_dir, csv_by_message_output_path, export_keys, consent_withdrawn_key)
-        cls.export_to_csv(user, folded_data, pipeline_configuration, raw_data_dir, csv_by_individual_output_path, export_keys, consent_withdrawn_key)
+        # Tag listening group participants
+        ListeningGroups.tag_listening_groups_participants(user, data, pipeline_configuration, raw_data_dir)
+
+        ConsentUtils.set_stopped(user, data, consent_withdrawn_key)
+        ConsentUtils.set_stopped(user, folded_data, consent_withdrawn_key)
+
+        cls.export_to_csv(MESSAGES_FILE, data, csv_by_message_output_path, export_keys, consent_withdrawn_key)
+        cls.export_to_csv(INDIVIDUALS_FILE, folded_data, csv_by_individual_output_path, export_keys, consent_withdrawn_key)
 
         return data, folded_data
