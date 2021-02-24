@@ -1,6 +1,5 @@
 import argparse
 import json
-import os
 
 from core_data_modules.logging import Logger
 from core_data_modules.traced_data.io import TracedDataJsonIO
@@ -11,7 +10,6 @@ from storage.google_drive import drive_client_wrapper
 from src import LoadData, TranslateRapidProKeys, AutoCode, ProductionFile, \
     ApplyManualCodes, AnalysisFile, WSCorrection
 from src.lib import PipelineConfiguration, MessageFilters
-from configurations.code_schemes import CodeSchemes
 
 log = Logger(__name__)
 
