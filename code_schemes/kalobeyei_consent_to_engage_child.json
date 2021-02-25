@@ -3,7 +3,22 @@
   "Name": "Kalobeyei Consent to Engage Child",
   "Version": "0.0.0.1",
   "Codes": [
-
+    {
+      "CodeID": "code-5e874a37",
+      "CodeType": "Normal",
+      "DisplayText": "yes",
+      "NumericValue": 0,
+      "StringValue": "no",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-f0769eb3",
+      "CodeType": "Normal",
+      "DisplayText": "no",
+      "NumericValue": 1,
+      "StringValue": "no",
+      "VisibleInCoda": true
+    },
     {
       "CodeID": "code-NA-f93d3eb7",
       "CodeType": "Control",
