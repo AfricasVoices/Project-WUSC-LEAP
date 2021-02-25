@@ -6,12 +6,12 @@
     {
         "CodeID": "code-534911d3",
         "CodeType": "Normal",
-        "DisplayText": "male",
+        "DisplayText": "man",
         "NumericValue": 0,
-        "StringValue": "male",
+        "StringValue": "man",
         "VisibleInCoda": true,
         "MatchValues" : [
-            "male"
+            "man"
         ]
     },
     {
