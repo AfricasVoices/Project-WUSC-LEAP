@@ -3,7 +3,41 @@
   "Name": "Kalobeyei Child Gender",
   "Version": "0.0.0.1",
   "Codes": [
-
+    {
+        "CodeID": "code-534911d3",
+        "CodeType": "Normal",
+        "DisplayText": "man",
+        "NumericValue": 0,
+        "StringValue": "man",
+        "Shortcut": "m",
+        "VisibleInCoda": true,
+        "MatchValues" : [
+            "man"
+        ]
+    },
+    {
+        "CodeID": "code-ef0f6f9c",
+        "CodeType": "Normal",
+        "DisplayText": "woman",
+        "NumericValue": 1,
+        "StringValue": "woman",
+        "Shortcut": "w",
+        "VisibleInCoda": true,
+        "MatchValues" : [
+            "woman"
+        ]
+    },
+    {
+        "CodeID": "code-a73f5cf2",
+        "CodeType": "Normal",
+        "DisplayText": "both",
+        "NumericValue": 2,
+        "StringValue": "both",
+        "VisibleInCoda": true,
+        "MatchValues" : [
+            "both"
+        ]
+    },
     {
       "CodeID": "code-NA-f93d3eb7",
       "CodeType": "Control",
