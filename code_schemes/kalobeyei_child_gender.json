@@ -17,12 +17,12 @@
     {
         "CodeID": "code-ef0f6f9c",
         "CodeType": "Normal",
-        "DisplayText": "female",
+        "DisplayText": "woman",
         "NumericValue": 1,
-        "StringValue": "female",
+        "StringValue": "woman",
         "VisibleInCoda": true,
         "MatchValues" : [
-            "female"
+            "woman"
         ]
     },
     {
