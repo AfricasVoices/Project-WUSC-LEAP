@@ -3,7 +3,22 @@
   "Name": "Kalobeyei Currently In School",
   "Version": "0.0.0.1",
   "Codes": [
-
+    {
+      "CodeID": "code-6abdb291",
+      "CodeType": "Normal",
+      "DisplayText": "yes",
+      "NumericValue": 0,
+      "StringValue": "no",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-369c3e53",
+      "CodeType": "Normal",
+      "DisplayText": "no",
+      "NumericValue": 1,
+      "StringValue": "no",
+      "VisibleInCoda": true
+    },
     {
       "CodeID": "code-NA-f93d3eb7",
       "CodeType": "Control",
