@@ -4,27 +4,19 @@
   "Version": "0.0.0.1",
   "Codes": [
     {
-      "CodeID": "code-0467aed5",
+      "CodeID": "code-18b8db9d",
       "CodeType": "Normal",
-      "DisplayText": "parent",
+      "DisplayText": "yes",
       "NumericValue": 0,
-      "StringValue": "parent",
+      "StringValue": "yes",
       "VisibleInCoda": true
     },
     {
-      "CodeID": "code-10bec086",
+      "CodeID": "code-e7f4c01d",
       "CodeType": "Normal",
-      "DisplayText": "student",
+      "DisplayText": "no",
       "NumericValue": 1,
-      "StringValue": "student",
-      "VisibleInCoda": true
-    },
-    {
-      "CodeID": "code-c01c5398",
-      "CodeType": "Normal",
-      "DisplayText": "other",
-      "NumericValue": 2,
-      "StringValue": "other",
+      "StringValue": "no",
       "VisibleInCoda": true
     },
     {
