@@ -12,6 +12,14 @@
       "VisibleInCoda": true
     },
     {
+      "CodeID": "code-10bec086",
+      "CodeType": "Normal",
+      "DisplayText": "student",
+      "NumericValue": 1,
+      "StringValue": "student",
+      "VisibleInCoda": true
+    },
+    {
       "CodeID": "code-NA-f93d3eb7",
       "CodeType": "Control",
       "ControlCode": "NA",
