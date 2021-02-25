@@ -9,6 +9,7 @@
         "DisplayText": "man",
         "NumericValue": 0,
         "StringValue": "man",
+        "Shortcut": "m",
         "VisibleInCoda": true,
         "MatchValues" : [
             "man"
@@ -20,6 +21,7 @@
         "DisplayText": "woman",
         "NumericValue": 1,
         "StringValue": "woman",
+        "Shortcut": "w",
         "VisibleInCoda": true,
         "MatchValues" : [
             "woman"
