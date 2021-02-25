@@ -20,6 +20,14 @@
       "VisibleInCoda": true
     },
     {
+      "CodeID": "code-c01c5398",
+      "CodeType": "Normal",
+      "DisplayText": "other",
+      "NumericValue": 2,
+      "StringValue": "other",
+      "VisibleInCoda": true
+    },
+    {
       "CodeID": "code-NA-f93d3eb7",
       "CodeType": "Control",
       "ControlCode": "NA",
