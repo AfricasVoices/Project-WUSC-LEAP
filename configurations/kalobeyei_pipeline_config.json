@@ -175,7 +175,7 @@
       {"StartDate": "2020-03-27T16:00+03:00", "EndDate": "2020-03-27T18:00+03:00", "Label": "E06 Juba-live"},
       {"StartDate": "2020-03-28T16:00+03:00", "EndDate": "2020-03-28T18:00+03:00", "Label": "E06 Kiswahili-live"},
       {"StartDate": "2020-03-29T20:00+03:00", "EndDate": "2020-03-29T22:00+03:00", "Label": "E06 Juba-repeat"},
-      {"StartDate": "2020-03-30T30:00+03:00", "EndDate": "2020-03-30T22:00+03:00", "Label": "E06 Kiswahili-repeat"}
+      {"StartDate": "2020-03-30T20:00+03:00", "EndDate": "2020-03-30T22:00+03:00", "Label": "E06 Kiswahili-repeat"}
     ]
   },
   "DriveUpload": {
