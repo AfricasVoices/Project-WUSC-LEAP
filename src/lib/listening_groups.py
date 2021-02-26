@@ -32,8 +32,8 @@ class ListeningGroups(object):
                                                 # will change each week.
 
         # Read repeat listening group participants CSV and add their uids to repeat_listening_group_participants lists
-        if os.path.exists(f'{raw_data_dir}/repeat_listening_group.csv'):
-            with open(f'{raw_data_dir}/repeat_listening_group.csv', "r", encoding='utf-8-sig') as f:
+        if os.path.exists(f'{raw_data_dir}/s01_kalobeyei_repeat_listening_group.csv'):
+            with open(f'{raw_data_dir}/s01_kalobeyei_repeat_listening_group.csv', "r", encoding='utf-8-sig') as f:
                 repeat_listening_group_data = list(csv.DictReader(f))
                 for row in repeat_listening_group_data:
                     repeat_listening_group_participants.append(row['avf-phone-uuid'])

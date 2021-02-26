@@ -1,10 +1,7 @@
 import argparse
 import json
-import os
 
-import pytz
 from core_data_modules.logging import Logger
-from core_data_modules.traced_data import Metadata, TracedData
 from core_data_modules.traced_data.io import TracedDataJsonIO
 from core_data_modules.util import IOUtils, TimeUtils, SHAUtils
 from id_infrastructure.firestore_uuid_table import FirestoreUuidTable
@@ -15,7 +12,6 @@ from temba_client.v2 import Contact, Run
 from src.lib import PipelineConfiguration
 from src.lib.pipeline_configuration import RapidProSource
 
-Logger.set_project_name("WUSC-KEEP-II")
 log = Logger(__name__)
 
 

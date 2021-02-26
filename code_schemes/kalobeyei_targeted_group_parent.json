@@ -3,7 +3,22 @@
   "Name": "Kalobeyei Targeted Group Parent",
   "Version": "0.0.0.1",
   "Codes": [
-
+    {
+      "CodeID": "code-18b8db9d",
+      "CodeType": "Normal",
+      "DisplayText": "yes",
+      "NumericValue": 0,
+      "StringValue": "yes",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-e7f4c01d",
+      "CodeType": "Normal",
+      "DisplayText": "no",
+      "NumericValue": 1,
+      "StringValue": "no",
+      "VisibleInCoda": true
+    },
     {
       "CodeID": "code-NA-f93d3eb7",
       "CodeType": "Control",

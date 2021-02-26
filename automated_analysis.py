@@ -4,7 +4,6 @@ from collections import OrderedDict
 import sys
 
 from core_data_modules.cleaners import Codes
-from core_data_modules.data_models.code_scheme import CodeTypes
 from core_data_modules.logging import Logger
 from core_data_modules.traced_data.io import TracedDataJsonIO
 from core_data_modules.util import IOUtils
@@ -12,7 +11,6 @@ from core_data_modules.analysis import AnalysisConfiguration, engagement_counts,
     repeat_participations, sample_messages, traffic_analysis, analysis_utils
 
 from src.lib import PipelineConfiguration
-from src import AnalysisUtils
 
 log = Logger(__name__)
 

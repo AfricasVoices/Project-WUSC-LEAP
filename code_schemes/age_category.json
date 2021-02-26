@@ -6,23 +6,12 @@
     {
       "CodeID": "code-aa2640e7",
       "CodeType": "Normal",
-      "DisplayText": "10 to 14",
+      "DisplayText": "12 to 17",
       "NumericValue": 1,
-      "StringValue": "10_to_14",
+      "StringValue": "12_to_17",
       "VisibleInCoda": true,
       "MatchValues": [
-        "10 to 14"
-      ]
-    },
-    {
-      "CodeID": "code-57391e8f",
-      "CodeType": "Normal",
-      "DisplayText": "15 to 17",
-      "NumericValue": 2,
-      "StringValue": "15_to_17",
-      "VisibleInCoda": true,
-      "MatchValues": [
-        "15 to 17"
+        "12 to 17"
       ]
     },
     {
