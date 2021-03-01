@@ -20,6 +20,14 @@
       "VisibleInCoda": true
     },
     {
+      "CodeID": "code-af38fbf3",
+      "CodeType": "Normal",
+      "DisplayText": "fear of covid 19",
+      "NumericValue": 1,
+      "StringValue": "fear_of_covid_19",
+      "VisibleInCoda": true
+    },
+    {
       "CodeID": "code-NA-f93d3eb7",
       "CodeType": "Control",
       "ControlCode": "NA",
