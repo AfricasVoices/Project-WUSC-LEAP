@@ -36,6 +36,14 @@
       "VisibleInCoda": true
     },
     {
+      "CodeID": "code-27cdb910",
+      "CodeType": "Normal",
+      "DisplayText": "encourage and support",
+      "NumericValue": 1,
+      "StringValue": "encourage_and_support",
+      "VisibleInCoda": true
+    },
+    {
       "CodeID": "code-NA-f93d3eb7",
       "CodeType": "Control",
       "ControlCode": "NA",
