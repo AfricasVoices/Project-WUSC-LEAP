@@ -28,6 +28,14 @@
       "VisibleInCoda": true
     },
     {
+      "CodeID": "code-e1333c93",
+      "CodeType": "Normal",
+      "DisplayText": "lack of fees",
+      "NumericValue": 1,
+      "StringValue": "lack_of_fees",
+      "VisibleInCoda": true
+    },
+    {
       "CodeID": "code-NA-f93d3eb7",
       "CodeType": "Control",
       "ControlCode": "NA",
