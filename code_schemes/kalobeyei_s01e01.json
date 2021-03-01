@@ -4,6 +4,14 @@
   "Version": "0.0.0.1",
   "Codes": [
     {
+      "CodeID": "code-e7304993",
+      "CodeType": "Normal",
+      "DisplayText": "early pregnancies",
+      "NumericValue": 1,
+      "StringValue": "early_pregnancies",
+      "VisibleInCoda": true
+    },
+    {
       "CodeID": "code-NA-f93d3eb7",
       "CodeType": "Control",
       "ControlCode": "NA",
