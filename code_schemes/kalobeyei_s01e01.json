@@ -7,7 +7,7 @@
       "CodeID": "code-e7304993",
       "CodeType": "Normal",
       "DisplayText": "early pregnancies",
-      "NumericValue": 1,
+      "NumericValue": 0,
       "StringValue": "early_pregnancies",
       "VisibleInCoda": true
     },
@@ -23,7 +23,7 @@
       "CodeID": "code-af38fbf3",
       "CodeType": "Normal",
       "DisplayText": "fear of covid 19",
-      "NumericValue": 1,
+      "NumericValue": 2,
       "StringValue": "fear_of_covid_19",
       "VisibleInCoda": true
     },
@@ -31,7 +31,7 @@
       "CodeID": "code-e1333c93",
       "CodeType": "Normal",
       "DisplayText": "lack of fees",
-      "NumericValue": 1,
+      "NumericValue": 3,
       "StringValue": "lack_of_fees",
       "VisibleInCoda": true
     },
@@ -39,7 +39,7 @@
       "CodeID": "code-27cdb910",
       "CodeType": "Normal",
       "DisplayText": "encourage and support",
-      "NumericValue": 1,
+      "NumericValue": 4,
       "StringValue": "encourage_and_support",
       "VisibleInCoda": true
     },
@@ -47,7 +47,7 @@
       "CodeID": "code-0b4ccad7",
       "CodeType": "Normal",
       "DisplayText": "domestic chores burden",
-      "NumericValue": 1,
+      "NumericValue": 5,
       "StringValue": "domestic_chores_burden",
       "VisibleInCoda": true
     },
@@ -55,7 +55,7 @@
       "CodeID": "code-0b4ccad7",
       "CodeType": "Normal",
       "DisplayText": "other theme",
-      "NumericValue": 1,
+      "NumericValue": 6,
       "StringValue": "other_theme",
       "VisibleInCoda": true
     },
