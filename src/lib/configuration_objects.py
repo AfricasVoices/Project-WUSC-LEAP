@@ -5,7 +5,7 @@ class CodingModes(object):
 
 class CodingConfiguration(object):
     def __init__(self, coding_mode, code_scheme, coded_field, fold_strategy, analysis_file_key=None, cleaner=None,
-                 include_in_theme_distribution=False, include_in_individuals_file=True):
+                 include_in_theme_distribution=True, include_in_individuals_file=True):
         assert coding_mode in {CodingModes.SINGLE, CodingModes.MULTIPLE}
 
         self.coding_mode = coding_mode
