@@ -228,7 +228,7 @@ KAKUMA_DEMOG_CODING_PLANS = [
                coding_configurations=[
                    CodingConfiguration(
                        coding_mode=CodingModes.SINGLE,
-                       code_scheme=CodeSchemes.NATIONALITY,
+                       code_scheme=CodeSchemes.KALOBEYEI_PARTICIPANTS_ENGAGING,
                        coded_field="kalobeyei_participants_engaging_coded",
                        analysis_file_key="kalobeyei_participants_engaging",
                        fold_strategy=FoldStrategies.assert_label_ids_equal,
@@ -245,7 +245,7 @@ KAKUMA_DEMOG_CODING_PLANS = [
                coding_configurations=[
                    CodingConfiguration(
                        coding_mode=CodingModes.SINGLE,
-                       code_scheme=CodeSchemes.NATIONALITY,
+                       code_scheme=CodeSchemes.KALOBEYEI_TARGETED_GROUP_PARENT,
                        coded_field="kalobeyei_targeted_group_parent_coded",
                        analysis_file_key="kalobeyei_targeted_group_parent",
                        fold_strategy=FoldStrategies.assert_label_ids_equal,
@@ -262,7 +262,7 @@ KAKUMA_DEMOG_CODING_PLANS = [
                coding_configurations=[
                    CodingConfiguration(
                        coding_mode=CodingModes.SINGLE,
-                       code_scheme=CodeSchemes.NATIONALITY,
+                       code_scheme=CodeSchemes.KALOBEYEI_CHILD_GENDER,
                        coded_field="kalobeyei_child_gender_coded",
                        analysis_file_key="kalobeyei_child_gender",
                        fold_strategy=FoldStrategies.assert_label_ids_equal,
@@ -279,7 +279,7 @@ KAKUMA_DEMOG_CODING_PLANS = [
                coding_configurations=[
                    CodingConfiguration(
                        coding_mode=CodingModes.SINGLE,
-                       code_scheme=CodeSchemes.NATIONALITY,
+                       code_scheme=CodeSchemes.KALOBEYEI_CONSENT_TO_ENGAGE_CHILD,
                        coded_field="kalobeyei_consent_to_engage_child_coded",
                        analysis_file_key="kalobeyei_consent_to_engage_child",
                        fold_strategy=FoldStrategies.assert_label_ids_equal,
@@ -296,7 +296,7 @@ KAKUMA_DEMOG_CODING_PLANS = [
                coding_configurations=[
                    CodingConfiguration(
                        coding_mode=CodingModes.SINGLE,
-                       code_scheme=CodeSchemes.NATIONALITY,
+                       code_scheme=CodeSchemes.KALOBEYEI_AGE_OF_PARENT,
                        coded_field="kalobeyei_age_of_parent_coded",
                        analysis_file_key="kalobeyei_age_of_parent",
                        fold_strategy=FoldStrategies.assert_label_ids_equal,
@@ -313,7 +313,7 @@ KAKUMA_DEMOG_CODING_PLANS = [
                coding_configurations=[
                    CodingConfiguration(
                        coding_mode=CodingModes.SINGLE,
-                       code_scheme=CodeSchemes.NATIONALITY,
+                       code_scheme=CodeSchemes.KALOBEYEI_CURRENTLY_IN_SCHOOL,
                        coded_field="kalobeyei_currently_in_school_coded",
                        analysis_file_key="kalobeyei_currently_in_school",
                        fold_strategy=FoldStrategies.assert_label_ids_equal,
