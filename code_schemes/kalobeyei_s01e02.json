@@ -3,7 +3,54 @@
   "Name": "KALOBEYEI S01E02",
   "Version": "0.0.0.1",
   "Codes": [
-
+    {
+      "CodeID": "code-05e34e1a",
+      "CodeType": "Normal",
+      "DisplayText": "provide advise and mentorship",
+      "NumericValue": 0,
+      "StringValue": "provide_advise_and_mentorship",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-6fa68e7f",
+      "CodeType": "Normal",
+      "DisplayText": "encourage and support",
+      "NumericValue": 1,
+      "StringValue": "encourage_and_support",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-80898697",
+      "CodeType": "Normal",
+      "DisplayText": "create awareness",
+      "NumericValue": 2,
+      "StringValue": "create_awareness",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-7d1178a7",
+      "CodeType": "Normal",
+      "DisplayText": "reporting relevant authorities",
+      "NumericValue": 3,
+      "StringValue": "reporting_relevant_authorities",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-2d566470",
+      "CodeType": "Normal",
+      "DisplayText": "stop early or forced marriage",
+      "NumericValue": 4,
+      "StringValue": "stop_early_or_forced_marriage",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-e5f9ae4f",
+      "CodeType": "Normal",
+      "DisplayText": "other theme",
+      "NumericValue": 5,
+      "StringValue": "other_theme",
+      "VisibleInCoda": true
+    },
     {
       "CodeID": "code-NA-f93d3eb7",
       "CodeType": "Control",
