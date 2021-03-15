@@ -322,28 +322,24 @@ KAKUMA_DEMOG_CODING_PLANS = [
                ],
                ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("leap kalobeyei currently in school"),
                raw_field_fold_strategy=FoldStrategies.assert_equal),
-
-    CodingPlan(raw_field="kalobeyei_girls_empowerment_raw",
-               dataset_name="kalobeyei_girls_empowerment",
-               time_field="kalobeyei_girls_empowerment_time",
-               coda_filename="WUSC-LEAP_kalobeyei_girls_empowerment.json",
-               coding_configurations=[
-                   CodingConfiguration(
-                       coding_mode=CodingModes.SINGLE,
-                       code_scheme=CodeSchemes.KALOBEYEI_GIRLS_EMPOWERMENT,
-                       coded_field="kalobeyei_girls_empowerment_coded",
-                       analysis_file_key="kalobeyei_girls_empowerment",
-                       fold_strategy=FoldStrategies.assert_label_ids_equal,
-                       include_in_theme_distribution=Codes.TRUE
-                   )
-               ],
-               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("leap kalobeyei girls empowerment"),
-               raw_field_fold_strategy=FoldStrategies.assert_equal),
-
         ]
 
 KALOBEYEI_S01_FOLLOW_UP_CODING_PLANS = [
-
+    CodingPlan(raw_field="kalobeyei_girls_empowerment_raw",
+            dataset_name="kalobeyei_girls_empowerment",
+            time_field="kalobeyei_girls_empowerment_time",
+            coda_filename="WUSC-LEAP_kalobeyei_girls_empowerment.json",
+            coding_configurations=[
+                CodingConfiguration(
+                    coding_mode=CodingModes.MULTIPLE,
+                    code_scheme=CodeSchemes.KALOBEYEI_GIRLS_EMPOWERMENT,
+                    coded_field="kalobeyei_girls_empowerment_coded",
+                    analysis_file_key="kalobeyei_girls_empowerment",
+                    fold_strategy=lambda x, y: FoldStrategies.list_of_labels(CodeSchemes.KALOBEYEI_GIRLS_EMPOWERMENT, x, y)
+                )
+            ],
+            ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("leap kalobeyei girls empowerment"),
+            raw_field_fold_strategy=FoldStrategies.assert_equal)
 ]
 
 def get_demog_coding_plans(pipeline_name):
