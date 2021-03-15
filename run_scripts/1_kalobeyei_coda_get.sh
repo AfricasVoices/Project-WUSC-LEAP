@@ -33,6 +33,7 @@ DATASETS=(
     "WUSC-LEAP_kalobeyei_consent_to_engage_child"
     "WUSC-LEAP_kalobeyei_age_of_parent"
     "WUSC-LEAP_kalobeyei_currently_in_school"
+    "WUSC-LEAP_kalobeyei_girls_empowerment"
 )
 
 cd "$CODA_V2_ROOT/data_tools"

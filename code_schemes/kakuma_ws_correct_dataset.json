@@ -367,6 +367,17 @@
       ]
     },
     {
+      "CodeID": "code-9f4fd804",
+      "CodeType": "Normal",
+      "DisplayText": "girls empowerment",
+      "StringValue": "girls_empowerment",
+      "NumericValue": 67,
+      "VisibleInCoda": true,
+      "MatchValues": [
+        "girls empowerment"
+      ]
+    },
+    {
       "CodeID": "code-d015fae8",
       "CodeType": "Normal",
       "DisplayText": "kakuma keep ii s01e04",
