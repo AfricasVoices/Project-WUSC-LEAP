@@ -326,7 +326,7 @@ KAKUMA_DEMOG_CODING_PLANS = [
     CodingPlan(raw_field="kalobeyei_girls_empowerment_raw",
                dataset_name="kalobeyei_girls_empowerment",
                time_field="kalobeyei_girls_empowerment_time",
-               coda_filename="WUSC-LEAP_girls_empowerment.json",
+               coda_filename="WUSC-LEAP_kalobeyei_girls_empowerment.json",
                coding_configurations=[
                    CodingConfiguration(
                        coding_mode=CodingModes.SINGLE,
