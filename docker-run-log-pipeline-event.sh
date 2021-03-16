@@ -20,10 +20,10 @@ while [[ $# -gt 0 ]]; do
 done
 
 # Check that the correct number of arguments were provided.
-if [[ $# -ne 6 ]]; then
+if [[ $# -ne 5 ]]; then
     echo "Usage: ./docker-run-log-pipeline-event.sh
     [--profile-cpu <cpu-profile-output-path>] <user> <google-cloud-credentials-file-path>\
-           <pipeline-configuration-file-path> <run-id> <timestamp> <event-key>"
+           <pipeline-configuration-file-path> <run-id> <event-key>"
     echo "Updates pipeline event/status to a firebase table to aid in monitoring"
     exit
 fi
@@ -32,8 +32,7 @@ USER=$1
 INPUT_GOOGLE_CLOUD_CREDENTIALS=$2
 INPUT_PIPELINE_CONFIGURATION=$3
 RUN_ID=$4
-TIMESTAMP=$5
-EVENT_KEY=$6
+EVENT_KEY=$5
 
 # Build an image for this pipeline stage.
 docker build --build-arg INSTALL_CPU_PROFILER="$PROFILE_CPU" -t "$IMAGE_NAME" .
@@ -45,7 +44,7 @@ if [[ "$PROFILE_CPU" = true ]]; then
 fi
 CMD="pipenv run $PROFILE_CPU_CMD python -u log_pipeline_event.py \
     \"$USER\" /credentials/google-cloud-credentials.json \
-    /data/pipeline-configuration.json \"$RUN_ID\" \"$TIMESTAMP\" \"$EVENT_KEY\"
+    /data/pipeline-configuration.json \"$RUN_ID\" \"$EVENT_KEY\"
 "
 container="$(docker container create ${SYS_PTRACE_CAPABILITY} -w /app "$IMAGE_NAME" /bin/bash -c "$CMD")"
 echo "Created container $container"

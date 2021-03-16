@@ -17,9 +17,9 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-if [[ $# -ne 6 ]]; then
-    echo "Usage: ./log_pipeline_events.sh [--profile-cpu <cpu-profile-output-path>] <user> <google-cloud-credentials-file-path>\
-           <pipeline-configuration-file-path> <run-id> <timestamp> <event-key>"
+if [[ $# -ne 5 ]]; then
+    echo "Usage: ./log_pipeline_event.sh [--profile-cpu <cpu-profile-output-path>] <user> <google-cloud-credentials-file-path>\
+           <pipeline-configuration-file-path> <run-id> <event-key>"
     echo "Updates pipeline event/status to a firebase table to aid in monitoring"
     exit
 fi
@@ -28,9 +28,8 @@ USER=$1
 GOOGLE_CLOUD_CREDENTIALS_FILE_PATH=$2
 PIPELINE_CONFIGURATION_FILE_PATH=$3
 RUN_ID=$4
-TIMESTAMP=$5
-EVENT_KEY=$6
+EVENT_KEY=$5
 
 cd ..
 ./docker-run-log-pipeline-event.sh ${CPU_PROFILE_ARG} \
-    "$USER" "$GOOGLE_CLOUD_CREDENTIALS_FILE_PATH" "$PIPELINE_CONFIGURATION_FILE_PATH" "$RUN_ID" "$TIMESTAMP" "$EVENT_KEY"
+    "$USER" "$GOOGLE_CLOUD_CREDENTIALS_FILE_PATH" "$PIPELINE_CONFIGURATION_FILE_PATH" "$RUN_ID" "$EVENT_KEY"
