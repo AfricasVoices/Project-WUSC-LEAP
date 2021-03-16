@@ -136,8 +136,8 @@
     {"RapidProKey": "Currently_In_School (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "kalobeyei_currently_in_school_raw"},
     {"RapidProKey": "Currently_In_School (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "kalobeyei_currently_in_school_time"},
     
-    {"RapidProKey": "Girls_Empowerment (Text) - wusc_leap_s01_kalobeyei_girls_empowerment", "PipelineKey": "kalobeyei_girls_empowerment_raw"},
-    {"RapidProKey": "Girls_Empowerment (Time) - wusc_leap_s01_kalobeyei_girls_empowerment", "PipelineKey": "kalobeyei_girls_empowerment_time"}
+    {"RapidProKey": "Girls_Empowerment (Text) - wusc_leap_s01e03_kalobeyei_follow_up", "PipelineKey": "kalobeyei_girls_empowerment_raw"},
+    {"RapidProKey": "Girls_Empowerment (Time) - wusc_leap_s01e03_kalobeyei_follow_up", "PipelineKey": "kalobeyei_girls_empowerment_time"}
   ],
 
   "PipelineName": "leap_kalobeyei_s01_pipeline",
