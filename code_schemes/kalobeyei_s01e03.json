@@ -3,7 +3,70 @@
   "Name": "KALOBEYEI S01E03",
   "Version": "0.0.0.1",
   "Codes": [
-
+    {
+      "CodeID": "code-07553680",
+      "CodeType": "Normal",
+      "DisplayText": "report to relevant authorities",
+      "NumericValue": 1,
+      "StringValue": "report_to_relevant_authorities",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-02a9a1a2",
+      "CodeType": "Normal",
+      "DisplayText": "punish the perpetrators",
+      "NumericValue": 2,
+      "StringValue": "punish_the_perpetrators",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-a1860010",
+      "CodeType": "Normal",
+      "DisplayText": "provide advice",
+      "NumericValue": 3,
+      "StringValue": "provide_advice",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-508449cf",
+      "CodeType": "Normal",
+      "DisplayText": "encourage and support",
+      "NumericValue": 4,
+      "StringValue": "encourage_and_support",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-1d3ab9fe",
+      "CodeType": "Normal",
+      "DisplayText": "create awareness",
+      "NumericValue": 5,
+      "StringValue": "create_awareness",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-7bcf86e7",
+      "CodeType": "Normal",
+      "DisplayText": "monitor them",
+      "NumericValue": 6,
+      "StringValue": "monitor_them",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-1ddf10c7",
+      "CodeType": "Normal",
+      "DisplayText": "take victim to the hospital",
+      "NumericValue": 7,
+      "StringValue": "take_victim_to_the_hospital",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-eabf5d99",
+      "CodeType": "Normal",
+      "DisplayText": "other theme",
+      "NumericValue": 8,
+      "StringValue": "other_theme",
+      "VisibleInCoda": true
+    },
     {
       "CodeID": "code-NA-f93d3eb7",
       "CodeType": "Control",
