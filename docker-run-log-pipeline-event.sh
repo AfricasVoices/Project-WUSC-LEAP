@@ -44,7 +44,7 @@ if [[ "$PROFILE_CPU" = true ]]; then
 fi
 CMD="pipenv run $PROFILE_CPU_CMD python -u log_pipeline_event.py \
     \"$USER\" /credentials/google-cloud-credentials.json \
-    /data/pipeline-configuration.json \"$RUN_ID\" \"$TIMESTAMP\" \"$EVENT_KEY\"
+    /data/pipeline-configuration.json \"$RUN_ID\" \"$EVENT_KEY\"
 "
 container="$(docker container create ${SYS_PTRACE_CAPABILITY} -w /app "$IMAGE_NAME" /bin/bash -c "$CMD")"
 echo "Created container $container"
