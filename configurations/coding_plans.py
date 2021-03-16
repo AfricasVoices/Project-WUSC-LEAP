@@ -339,7 +339,7 @@ KALOBEYEI_S01_FOLLOW_UP_CODING_PLANS = [
                 )
             ],
             ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("leap kalobeyei girls empowerment"),
-            raw_field_fold_strategy=FoldStrategies.assert_equal)
+            raw_field_fold_strategy=FoldStrategies.concatenate),
 ]
 
 def get_demog_coding_plans(pipeline_name):
