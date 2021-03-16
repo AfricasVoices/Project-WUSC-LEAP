@@ -180,6 +180,17 @@
       ]
     },
     {
+        "CodeID": "code-9f4fd804",
+        "CodeType": "Normal",
+        "DisplayText": "leap kalobeyei girls empowerment",
+        "StringValue": "leap_kalobeyei_girls_empowerment",
+        "NumericValue": 67,
+        "VisibleInCoda": true,
+        "MatchValues": [
+          "leap kalobeyei girls empowerment"
+        ]
+      },
+    {
       "CodeID": "code-ba352823",
       "CodeType": "Normal",
       "DisplayText": "kakuma keep ii s02e01",

@@ -35,7 +35,8 @@
         "wusc_leap_s01e05_kalobeyei_activation"
       ],
       "SurveyFlowNames": [
-        "wusc_leap_s01_kalobeyei_demogs"
+        "wusc_leap_s01_kalobeyei_demogs",
+        "wusc_leap_s01e03_kalobeyei_follow_up"
       ],
       "TestContactUUIDs": [
         "905aa170-fada-4380-b5b6-6837de5cbb04",
@@ -133,7 +134,10 @@
     {"RapidProKey": "Age_Of_Parent (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "kalobeyei_age_of_parent_raw"},
     {"RapidProKey": "Age_Of_Parent (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "kalobeyei_age_of_parent_time"},
     {"RapidProKey": "Currently_In_School (Text) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "kalobeyei_currently_in_school_raw"},
-    {"RapidProKey": "Currently_In_School (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "kalobeyei_currently_in_school_time"}
+    {"RapidProKey": "Currently_In_School (Time) - wusc_leap_s01_kalobeyei_demogs", "PipelineKey": "kalobeyei_currently_in_school_time"},
+    
+    {"RapidProKey": "Girls_Empowerment (Text) - wusc_leap_s01e03_kalobeyei_follow_up", "PipelineKey": "kalobeyei_girls_empowerment_raw"},
+    {"RapidProKey": "Girls_Empowerment (Time) - wusc_leap_s01e03_kalobeyei_follow_up", "PipelineKey": "kalobeyei_girls_empowerment_time"}
   ],
 
   "PipelineName": "leap_kalobeyei_s01_pipeline",

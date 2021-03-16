@@ -30,5 +30,6 @@ class CodeSchemes(object):
     KALOBEYEI_CONSENT_TO_ENGAGE_CHILD = _open_scheme("kalobeyei_consent_to_engage_child.json")
     KALOBEYEI_AGE_OF_PARENT = _open_scheme("kalobeyei_age_of_parent.json")
     KALOBEYEI_CURRENTLY_IN_SCHOOL = _open_scheme("kalobeyei_currently_in_school.json")
+    KALOBEYEI_GIRLS_EMPOWERMENT = _open_scheme("kalobeyei_girls_empowerment.json")
 
     KAKUMA_WS_CORRECT_DATASET = _open_scheme("kakuma_ws_correct_dataset.json")
