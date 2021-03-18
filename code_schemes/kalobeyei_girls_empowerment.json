@@ -4,6 +4,46 @@
   "Version": "0.0.0.1",
   "Codes": [
     {
+        "CodeID": "code-a58bbba8",
+        "CodeType": "Normal",
+        "DisplayText": "by advising them",
+        "NumericValue": 1,
+        "StringValue": "by_advising_them",
+        "VisibleInCoda": true
+    },
+    {
+        "CodeID": "code-28b2aba4",
+        "CodeType": "Normal",
+        "DisplayText": "create awareness",
+        "NumericValue": 2,
+        "StringValue": "create_awareness",
+        "VisibleInCoda": true
+    },
+    {
+        "CodeID": "code-b582d371",
+        "CodeType": "Normal",
+        "DisplayText": "encouraging them",
+        "NumericValue": 3,
+        "StringValue": "encouraging_them",
+        "VisibleInCoda": true
+    },
+    {
+        "CodeID": "code-d87c4f84",
+        "CodeType": "Normal",
+        "DisplayText": "educating them",
+        "NumericValue": 4,
+        "StringValue": "educating_them",
+        "VisibleInCoda": true
+    },
+    {
+        "CodeID": "code-c656f634",
+        "CodeType": "Normal",
+        "DisplayText": "other theme",
+        "NumericValue": 5,
+        "StringValue": "other_theme",
+        "VisibleInCoda": true
+    },
+    {
         "CodeID": "code-NA-f93d3eb7",
         "CodeType": "Control",
         "ControlCode": "NA",
