@@ -50,7 +50,8 @@
       "gs://avf-project-datasets/2021/WUSC-LEAP/s01_kalobeyei_repeat_listening_group.csv",
       "gs://avf-project-datasets/2021/WUSC-LEAP/wusc_leap_kalobeyei_s01e01_listening_group.csv",
       "gs://avf-project-datasets/2021/WUSC-LEAP/wusc_leap_kalobeyei_s01e02_listening_group.csv",
-      "gs://avf-project-datasets/2021/WUSC-LEAP/wusc_leap_kalobeyei_s01e03_listening_group.csv"
+      "gs://avf-project-datasets/2021/WUSC-LEAP/wusc_leap_kalobeyei_s01e03_listening_group.csv",
+      "gs://avf-project-datasets/2021/WUSC-LEAP/wusc_leap_kalobeyei_s01e04_listening_group.csv"
     ],
   "PhoneNumberUuidTable": {
     "FirebaseCredentialsFileURL": "gs://avf-credentials/avf-id-infrastructure-firebase-adminsdk-6xps8-b9173f2bfd.json",
