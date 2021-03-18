@@ -3,7 +3,70 @@
   "Name": "KALOBEYEI S01E04",
   "Version": "0.0.0.1",
   "Codes": [
-
+   {
+     "CodeID": "code-3cefc2f1",
+     "CodeType": "Normal",
+     "DisplayText": "parents",
+     "NumericValue": 1,
+     "StringValue": "Parents",
+     "VisibleInCoda": true
+   },
+   {
+     "CodeID": "code-55019898",
+     "CodeType": "Normal",
+     "DisplayText": "teachers",
+     "NumericValue": 2,
+     "StringValue": "teachers",
+     "VisibleInCoda": true
+   },
+   {
+     "CodeID": "code-34e82d97",
+     "CodeType": "Normal",
+     "DisplayText": "siblings",
+     "NumericValue": 3,
+     "StringValue": "siblings",
+     "VisibleInCoda": true
+   },
+   {
+     "CodeID": "code-9da09b9a",
+     "CodeType": "Normal",
+     "DisplayText": "development organisations",
+     "NumericValue": 4,
+     "StringValue": "development_organisations",
+     "VisibleInCoda": true
+   },
+   {
+     "CodeID": "code-4824b711",
+     "CodeType": "Normal",
+     "DisplayText": "community leaders",
+     "NumericValue": 5,
+     "StringValue": "community_leaders",
+     "VisibleInCoda": true
+   },
+   {
+     "CodeID": "code-f54d5d43",
+     "CodeType": "Normal",
+     "DisplayText": "counsellors",
+     "NumericValue": 6,
+     "StringValue": "counsellors",
+     "VisibleInCoda": true
+   },
+   {
+     "CodeID": "code-809d34c6",
+     "CodeType": "Normal",
+     "DisplayText": "religious centres",
+     "NumericValue": 7,
+     "StringValue": "religious_centres",
+     "VisibleInCoda": true
+   },
+   {
+     "CodeID": "code-de387872",
+     "CodeType": "Normal",
+     "DisplayText": "other theme",
+     "NumericValue": 8,
+     "StringValue": "other_theme",
+     "VisibleInCoda": true
+   },
    {
       "CodeID": "code-NA-f93d3eb7",
       "CodeType": "Control",
