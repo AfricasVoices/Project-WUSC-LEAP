@@ -125,6 +125,7 @@ class AnalysisFile(object):
 
         # Tag listening group participants
         ListeningGroups.tag_listening_groups_participants(user, data, pipeline_configuration, raw_data_dir)
+        ListeningGroups.tag_listening_groups_participants(user, folded_data, pipeline_configuration, raw_data_dir)
 
         ConsentUtils.set_stopped(user, data, consent_withdrawn_key)
         ConsentUtils.set_stopped(user, folded_data, consent_withdrawn_key)
