@@ -177,7 +177,7 @@
       {"StartDate": "2021-03-16T20:00+03:00", "EndDate": "2021-03-16T22:00+03:00", "Label": "E04 Kiswahili-repeat"},
       
       {"StartDate": "2021-03-18T10:00+03:00", "EndDate": "2021-03-19T19:30+03:00", "Label": "E05 Promo"},
-      {"StartDate": "2021-03-19T19:30+03:00", "EndDate": "2021-03-19T16:00+03:00", "Label": "E05 Ad"},
+      {"StartDate": "2021-03-19T19:30+03:00", "EndDate": "2021-03-20T16:00+03:00", "Label": "E05 Ad"},
       {"StartDate": "2021-03-20T16:00+03:00", "EndDate": "2021-03-20T18:00+03:00", "Label": "E05 Juba-live"},
       {"StartDate": "2021-03-21T16:00+03:00", "EndDate": "2021-03-21T18:00+03:00", "Label": "E05 Kiswahili-live"},
       {"StartDate": "2021-03-22T20:00+03:00", "EndDate": "2021-03-22T22:00+03:00", "Label": "E05 Juba-repeat"},
