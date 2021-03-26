@@ -135,7 +135,7 @@ CodingPlan(raw_field="rqa_s01e05_raw",
                     )
                 ],
                 ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
-                    "s01 kalobeyei lessons learnt"),
+                    "s01 leap kalobeyei lessons learnt"),
                 raw_field_fold_strategy=FoldStrategies.concatenate),
 
     CodingPlan( raw_field="s01_impact_made_raw",
@@ -153,7 +153,7 @@ CodingPlan(raw_field="rqa_s01e05_raw",
                     )
                 ],
                 ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
-                    "s01 kalobeyei impact made"),
+                    "s01 leap kalobeyei impact made"),
                 raw_field_fold_strategy=FoldStrategies.concatenate)
 ]
 
