@@ -20,109 +20,116 @@ def clean_age_with_range_filter(text):
 
 
 KALOBEYEI_S01_RQA_CODING_PLANS = [
-            CodingPlan(raw_field="rqa_s01e01_raw",
-                       dataset_name="kalobeyei_s01e01",
-                       listening_group_filename="wusc_leap_kalobeyei_s01e01_listening_group.csv",
-                       time_field="sent_on",
-                       run_id_field="rqa_s01e01_run_id",
-                       coda_filename="WUSC-LEAP_kalobeyei_s01e01.json",
-                       icr_filename="s01e01.csv",
-                       coding_configurations=[
-                           CodingConfiguration(
-                               coding_mode=CodingModes.MULTIPLE,
-                               code_scheme=CodeSchemes.KALOBEYEI_S01E01,
-                               coded_field="rqa_s01e01_coded",
-                               analysis_file_key="rqa_s01e01_",
-                               fold_strategy=lambda x, y: FoldStrategies.list_of_labels(
+    CodingPlan(raw_field="rqa_s01e01_raw",
+               dataset_name="kalobeyei_s01e01",
+               listening_group_filename="wusc_leap_kalobeyei_s01e01_listening_group.csv",
+               time_field="sent_on",
+               run_id_field="rqa_s01e01_run_id",
+               coda_filename="WUSC-LEAP_kalobeyei_s01e01.json",
+               icr_filename="s01e01.csv",
+               coding_configurations=[
+                   CodingConfiguration(
+                       coding_mode=CodingModes.MULTIPLE,
+                       code_scheme=CodeSchemes.KALOBEYEI_S01E01,
+                       coded_field="rqa_s01e01_coded",
+                       analysis_file_key="rqa_s01e01_",
+                       fold_strategy=lambda x, y: FoldStrategies.list_of_labels(
                                    CodeSchemes.KALOBEYEI_S01E01, x, y)
-                           )
-                       ],
-                       ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("leap kalobeyei s01e01"),
-                       raw_field_fold_strategy=FoldStrategies.concatenate),
+                   )
+               ],
+               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
+                   "leap kalobeyei s01e01"),
+               raw_field_fold_strategy=FoldStrategies.concatenate),
 
-CodingPlan(raw_field="rqa_s01e02_raw",
-                       dataset_name="kalobeyei_s01e01",
-                       listening_group_filename="wusc_leap_kalobeyei_s01e02_listening_group.csv",
-                       time_field="sent_on",
-                       run_id_field="rqa_s01e02_run_id",
-                       coda_filename="WUSC-LEAP_kalobeyei_s01e02.json",
-                       icr_filename="s01e02.csv",
-                       coding_configurations=[
-                           CodingConfiguration(
-                               coding_mode=CodingModes.MULTIPLE,
-                               code_scheme=CodeSchemes.KALOBEYEI_S01E02,
-                               coded_field="rqa_s01e02_coded",
-                               analysis_file_key="rqa_s01e02_",
-                               fold_strategy=lambda x, y: FoldStrategies.list_of_labels(
-                                   CodeSchemes.KALOBEYEI_S01E02, x, y)
-                           )
-                       ],
-                       ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("leap kalobeyei s01e02"),
-                       raw_field_fold_strategy=FoldStrategies.concatenate),
+    CodingPlan(raw_field="rqa_s01e02_raw",
+               dataset_name="kalobeyei_s01e01",
+               listening_group_filename="wusc_leap_kalobeyei_s01e02_listening_group.csv",
+               time_field="sent_on",
+               run_id_field="rqa_s01e02_run_id",
+               coda_filename="WUSC-LEAP_kalobeyei_s01e02.json",
+               icr_filename="s01e02.csv",
+               coding_configurations=[
+                   CodingConfiguration(
+                       coding_mode=CodingModes.MULTIPLE,
+                       code_scheme=CodeSchemes.KALOBEYEI_S01E02,
+                       coded_field="rqa_s01e02_coded",
+                       analysis_file_key="rqa_s01e02_",
+                       fold_strategy=lambda x, y: FoldStrategies.list_of_labels(
+                           CodeSchemes.KALOBEYEI_S01E02, x, y)
+                   )
+               ],
+               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
+                   "leap kalobeyei s01e02"),
+               raw_field_fold_strategy=FoldStrategies.concatenate),
 
-CodingPlan(raw_field="rqa_s01e03_raw",
-                       dataset_name="kalobeyei_s01e03",
-                       listening_group_filename="wusc_leap_kalobeyei_s01e03_listening_group.csv",
-                       time_field="sent_on",
-                       run_id_field="rqa_s01e03_run_id",
-                       coda_filename="WUSC-LEAP_kalobeyei_s01e03.json",
-                       icr_filename="s01e03.csv",
-                       coding_configurations=[
-                           CodingConfiguration(
-                               coding_mode=CodingModes.MULTIPLE,
-                               code_scheme=CodeSchemes.KALOBEYEI_S01E03,
-                               coded_field="rqa_s01e03_coded",
-                               analysis_file_key="rqa_s01e03_",
-                               fold_strategy=lambda x, y: FoldStrategies.list_of_labels(
-                                   CodeSchemes.KALOBEYEI_S01E03, x, y)
-                           )
-                       ],
-                       ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("leap kalobeyei s01e03"),
-                       raw_field_fold_strategy=FoldStrategies.concatenate),
+    CodingPlan(raw_field="rqa_s01e03_raw",
+               dataset_name="kalobeyei_s01e03",
+               listening_group_filename="wusc_leap_kalobeyei_s01e03_listening_group.csv",
+               time_field="sent_on",
+               run_id_field="rqa_s01e03_run_id",
+               coda_filename="WUSC-LEAP_kalobeyei_s01e03.json",
+               icr_filename="s01e03.csv",
+               coding_configurations=[
+                   CodingConfiguration(
+                       coding_mode=CodingModes.MULTIPLE,
+                       code_scheme=CodeSchemes.KALOBEYEI_S01E03,
+                       coded_field="rqa_s01e03_coded",
+                       analysis_file_key="rqa_s01e03_",
+                       fold_strategy=lambda x, y: FoldStrategies.list_of_labels(
+                           CodeSchemes.KALOBEYEI_S01E03, x, y)
+                   )
+               ],
+               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
+                   "leap kalobeyei s01e03"),
+               raw_field_fold_strategy=FoldStrategies.concatenate),
 
-CodingPlan(raw_field="rqa_s01e04_raw",
-                       dataset_name="kalobeyei_s01e04",
-                       listening_group_filename="wusc_leap_kalobeyei_s01e04_listening_group.csv",
-                       time_field="sent_on",
-                       run_id_field="rqa_s01e04_run_id",
-                       coda_filename="WUSC-LEAP_kalobeyei_s01e04.json",
-                       icr_filename="s01e04.csv",
-                       coding_configurations=[
-                           CodingConfiguration(
-                               coding_mode=CodingModes.MULTIPLE,
-                               code_scheme=CodeSchemes.KALOBEYEI_S01E04,
-                               coded_field="rqa_s01e04_coded",
-                               analysis_file_key="rqa_s01e04_",
-                               fold_strategy=lambda x, y: FoldStrategies.list_of_labels(
-                                   CodeSchemes.KALOBEYEI_S01E04, x, y)
-                           )
-                       ],
-                       ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("leap kalobeyei s01e04"),
-                       raw_field_fold_strategy=FoldStrategies.concatenate),
+    CodingPlan(raw_field="rqa_s01e04_raw",
+               dataset_name="kalobeyei_s01e04",
+               listening_group_filename="wusc_leap_kalobeyei_s01e04_listening_group.csv",
+               time_field="sent_on",
+               run_id_field="rqa_s01e04_run_id",
+               coda_filename="WUSC-LEAP_kalobeyei_s01e04.json",
+               icr_filename="s01e04.csv",
+               coding_configurations=[
+                   CodingConfiguration(
+                       coding_mode=CodingModes.MULTIPLE,
+                       code_scheme=CodeSchemes.KALOBEYEI_S01E04,
+                       coded_field="rqa_s01e04_coded",
+                       analysis_file_key="rqa_s01e04_",
+                       fold_strategy=lambda x, y: FoldStrategies.list_of_labels(
+                           CodeSchemes.KALOBEYEI_S01E04, x, y)
+                   )
+               ],
+               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
+                   "leap kalobeyei s01e04"),
+               raw_field_fold_strategy=FoldStrategies.concatenate),
 
-CodingPlan(raw_field="rqa_s01e05_raw",
-                       dataset_name="kalobeyei_s01e05",
-                       listening_group_filename="wusc_leap_kalobeyei_s01e05_listening_group.csv",
-                       time_field="sent_on",
-                       run_id_field="rqa_s01e05_run_id",
-                       coda_filename="WUSC-LEAP_kalobeyei_s01e05.json",
-                       icr_filename="s01e05.csv",
-                       coding_configurations=[
-                           CodingConfiguration(
-                               coding_mode=CodingModes.MULTIPLE,
-                               code_scheme=CodeSchemes.KALOBEYEI_S01E05,
-                               coded_field="rqa_s01e05_coded",
-                               analysis_file_key="rqa_s01e05_",
-                               fold_strategy=lambda x, y: FoldStrategies.list_of_labels(
-                                   CodeSchemes.KALOBEYEI_S01E05, x, y)
-                           )
-                       ],
-                       ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("leap kalobeyei s01e05"),
-                       raw_field_fold_strategy=FoldStrategies.concatenate),
-    ]
+    CodingPlan(raw_field="rqa_s01e05_raw",
+               dataset_name="kalobeyei_s01e05",
+               listening_group_filename="wusc_leap_kalobeyei_s01e05_listening_group.csv",
+               time_field="sent_on",
+               run_id_field="rqa_s01e05_run_id",
+               coda_filename="WUSC-LEAP_kalobeyei_s01e05.json",
+               icr_filename="s01e05.csv",
+               coding_configurations=[
+                   CodingConfiguration(
+                       coding_mode=CodingModes.MULTIPLE,
+                       code_scheme=CodeSchemes.KALOBEYEI_S01E05,
+                       coded_field="rqa_s01e05_coded",
+                       analysis_file_key="rqa_s01e05_",
+                       fold_strategy=lambda x, y: FoldStrategies.list_of_labels(
+                           CodeSchemes.KALOBEYEI_S01E05, x, y)
+                   )
+               ],
+               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
+                   "leap kalobeyei s01e05"),
+               raw_field_fold_strategy=FoldStrategies.concatenate),
+]
+
 
 def get_rqa_coding_plans(pipeline_name):
-        return KALOBEYEI_S01_RQA_CODING_PLANS
+    return KALOBEYEI_S01_RQA_CODING_PLANS
+
 
 KAKUMA_DEMOG_CODING_PLANS = [
     CodingPlan(raw_field="location_raw",
@@ -139,7 +146,8 @@ KAKUMA_DEMOG_CODING_PLANS = [
                        include_in_theme_distribution=Codes.TRUE
                    ),
                ],
-               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("kakuma location"),
+               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
+                   "kakuma location"),
                raw_field_fold_strategy=FoldStrategies.assert_equal),
 
     CodingPlan(raw_field="gender_raw",
@@ -157,7 +165,8 @@ KAKUMA_DEMOG_CODING_PLANS = [
                        include_in_theme_distribution=Codes.TRUE
                    )
                ],
-               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("kakuma gender"),
+               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
+                   "kakuma gender"),
                raw_field_fold_strategy=FoldStrategies.assert_equal),
 
     CodingPlan(raw_field="age_raw",
@@ -184,7 +193,8 @@ KAKUMA_DEMOG_CODING_PLANS = [
                    )
                ],
                code_imputation_function=code_imputation_functions.impute_age_category,
-               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("kakuma age"),
+               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
+                   "kakuma age"),
                raw_field_fold_strategy=FoldStrategies.assert_equal),
 
     CodingPlan(raw_field="household_language_raw",
@@ -201,7 +211,8 @@ KAKUMA_DEMOG_CODING_PLANS = [
                        include_in_theme_distribution=Codes.TRUE
                    )
                ],
-               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("kakuma household language"),
+               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
+                   "kakuma household language"),
                raw_field_fold_strategy=FoldStrategies.assert_equal),
 
     CodingPlan(raw_field="nationality_raw",
@@ -218,7 +229,8 @@ KAKUMA_DEMOG_CODING_PLANS = [
                        include_in_theme_distribution=Codes.TRUE
                    )
                ],
-               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("kakuma nationality"),
+               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
+                   "kakuma nationality"),
                raw_field_fold_strategy=FoldStrategies.assert_equal),
 
     CodingPlan(raw_field="kalobeyei_participants_engaging_raw",
@@ -235,7 +247,8 @@ KAKUMA_DEMOG_CODING_PLANS = [
                        include_in_theme_distribution=Codes.TRUE
                    )
                ],
-               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("leap kalobeyei participants engaging"),
+               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
+                   "leap kalobeyei participants engaging"),
                raw_field_fold_strategy=FoldStrategies.assert_equal),
 
     CodingPlan(raw_field="kalobeyei_targeted_group_parent_raw",
@@ -252,7 +265,8 @@ KAKUMA_DEMOG_CODING_PLANS = [
                        include_in_theme_distribution=Codes.TRUE
                    )
                ],
-               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("leap kalobeyei targeted group parent"),
+               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
+                   "leap kalobeyei targeted group parent"),
                raw_field_fold_strategy=FoldStrategies.assert_equal),
 
     CodingPlan(raw_field="kalobeyei_child_gender_raw",
@@ -269,7 +283,8 @@ KAKUMA_DEMOG_CODING_PLANS = [
                        include_in_theme_distribution=Codes.TRUE
                    )
                ],
-               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("leap kalobeyei child gender"),
+               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
+                   "leap kalobeyei child gender"),
                raw_field_fold_strategy=FoldStrategies.assert_equal),
 
     CodingPlan(raw_field="kalobeyei_consent_to_engage_child_raw",
@@ -286,7 +301,8 @@ KAKUMA_DEMOG_CODING_PLANS = [
                        include_in_theme_distribution=Codes.TRUE
                    )
                ],
-               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("leap kalobeyei consent to engage child"),
+               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
+                   "leap kalobeyei consent to engage child"),
                raw_field_fold_strategy=FoldStrategies.assert_equal),
 
     CodingPlan(raw_field="kalobeyei_age_of_parent_raw",
@@ -303,7 +319,8 @@ KAKUMA_DEMOG_CODING_PLANS = [
                        include_in_theme_distribution=Codes.TRUE
                    )
                ],
-               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("leap kalobeyei age of parent"),
+               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
+                   "leap kalobeyei age of parent"),
                raw_field_fold_strategy=FoldStrategies.assert_equal),
 
     CodingPlan(raw_field="kalobeyei_currently_in_school_raw",
@@ -320,33 +337,39 @@ KAKUMA_DEMOG_CODING_PLANS = [
                        include_in_theme_distribution=Codes.TRUE
                    )
                ],
-               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("leap kalobeyei currently in school"),
+               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
+                   "leap kalobeyei currently in school"),
                raw_field_fold_strategy=FoldStrategies.assert_equal),
-        ]
+]
 
 KALOBEYEI_S01_FOLLOW_UP_CODING_PLANS = [
     CodingPlan(raw_field="kalobeyei_girls_empowerment_raw",
-            dataset_name="kalobeyei_girls_empowerment",
-            time_field="kalobeyei_girls_empowerment_time",
-            coda_filename="WUSC-LEAP_kalobeyei_girls_empowerment.json",
-            coding_configurations=[
-                CodingConfiguration(
-                    coding_mode=CodingModes.MULTIPLE,
-                    code_scheme=CodeSchemes.KALOBEYEI_GIRLS_EMPOWERMENT,
-                    coded_field="kalobeyei_girls_empowerment_coded",
-                    analysis_file_key="kalobeyei_girls_empowerment",
-                    fold_strategy=lambda x, y: FoldStrategies.list_of_labels(CodeSchemes.KALOBEYEI_GIRLS_EMPOWERMENT, x, y)
-                )
-            ],
-            ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("leap kalobeyei girls empowerment"),
-            raw_field_fold_strategy=FoldStrategies.concatenate),
+               dataset_name="kalobeyei_girls_empowerment",
+               time_field="kalobeyei_girls_empowerment_time",
+               coda_filename="WUSC-LEAP_kalobeyei_girls_empowerment.json",
+               coding_configurations=[
+                   CodingConfiguration(
+                       coding_mode=CodingModes.MULTIPLE,
+                       code_scheme=CodeSchemes.KALOBEYEI_GIRLS_EMPOWERMENT,
+                       coded_field="kalobeyei_girls_empowerment_coded",
+                       analysis_file_key="kalobeyei_girls_empowerment",
+                       fold_strategy=lambda x, y: FoldStrategies.list_of_labels(
+                           CodeSchemes.KALOBEYEI_GIRLS_EMPOWERMENT, x, y)
+                   )
+               ],
+               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
+                   "leap kalobeyei girls empowerment"),
+               raw_field_fold_strategy=FoldStrategies.concatenate),
 ]
+
 
 def get_demog_coding_plans(pipeline_name):
     return KAKUMA_DEMOG_CODING_PLANS
 
+
 def get_ws_correct_dataset_scheme(pipeline_name):
     return CodeSchemes.KAKUMA_WS_CORRECT_DATASET
+
 
 def get_follow_up_coding_plans(pipeline_name):
     return KALOBEYEI_S01_FOLLOW_UP_CODING_PLANS
