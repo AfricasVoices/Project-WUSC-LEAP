@@ -3,7 +3,62 @@
   "Name": "KALOBEYEI S01E05",
   "Version": "0.0.0.1",
   "Codes": [
-
+    {
+      "CodeID": "code-d74bf7d5",
+      "CodeType": "Normal",
+      "DisplayText": "tailoring",
+      "NumericValue": 1,
+      "StringValue": "tailoring",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-9681bc94",
+      "CodeType": "Normal",
+      "DisplayText": "selling foodstuff",
+      "NumericValue": 2,
+      "StringValue": "selling_foodstuff",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-677119b5",
+      "CodeType": "Normal",
+      "DisplayText": "farming",
+      "NumericValue": 3,
+      "StringValue": "farming",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-a18ad315",
+      "CodeType": "Normal",
+      "DisplayText": "hair dressing",
+      "NumericValue": 4,
+      "StringValue": "hair_dressing",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-7ae22d3c",
+      "CodeType": "Normal",
+      "DisplayText": "engaging in small businesses",
+      "NumericValue": 5,
+      "StringValue": "engaging_in_small_businesses",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-20e91230",
+      "CodeType": "Normal",
+      "DisplayText": "looking for employment",
+      "NumericValue": 6,
+      "StringValue": "looking_for_employment",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-37aa999d",
+      "CodeType": "Normal",
+      "DisplayText": "other theme",
+      "NumericValue": 7,
+      "StringValue": "other_theme",
+      "VisibleInCoda": true
+    },
     {
       "CodeID": "code-NA-f93d3eb7",
       "CodeType": "Control",
