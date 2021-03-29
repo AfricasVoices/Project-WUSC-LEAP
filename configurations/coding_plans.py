@@ -139,7 +139,7 @@ CodingPlan(raw_field="rqa_s01e05_raw",
                 raw_field_fold_strategy=FoldStrategies.concatenate),
 
     CodingPlan( raw_field="s01_impact_made_raw",
-                dataset_name="s01_kalobeyei_impact_made",
+                dataset_name="s01_impact_made",
                 time_field="sent_on",
                 coda_filename="WUSC-LEAP_kalobeyei_s01_impact_made.json",
                 coding_configurations=[
