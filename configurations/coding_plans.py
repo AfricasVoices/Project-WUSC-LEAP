@@ -124,7 +124,7 @@ CodingPlan(raw_field="rqa_s01e05_raw",
                 dataset_name="s01_lessons_learnt",
                 time_field="sent_on",
                 coda_filename="WUSC-LEAP_kalobeyei_s01_lessons_learnt.json",
-                icr_filename="kalobeyei_s01_lessons_learnt.csv,
+                icr_filename="kalobeyei_s01_lessons_learnt.csv",
                 coding_configurations=[
                     CodingConfiguration(
                         coding_mode=CodingModes.MULTIPLE,
