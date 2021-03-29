@@ -128,7 +128,7 @@ CodingPlan(raw_field="rqa_s01e05_raw",
                 coding_configurations=[
                     CodingConfiguration(
                         coding_mode=CodingModes.MULTIPLE,
-                        code_scheme=CodeSchemes.S01_KALOBEYEI_LESSONS_LEARNT,
+                        code_scheme=CodeSchemes.KALOBEYEI_S01_LESSONS_LEARNT,
                         coded_field="s01_lessons_learnt",
                         analysis_file_key="s01_lessons_learnt_",
                         fold_strategy=lambda x, y: FoldStrategies.list_of_labels(
@@ -147,7 +147,7 @@ CodingPlan(raw_field="rqa_s01e05_raw",
                 coding_configurations=[
                     CodingConfiguration(
                         coding_mode=CodingModes.MULTIPLE,
-                        code_scheme=CodeSchemes.S01_KALOBEYEI_IMPACT_MADE,
+                        code_scheme=CodeSchemes.KALOBEYEI_S01_IMPACT_MADE,
                         coded_field="s01_impact_made",
                         analysis_file_key="s01_impact_made_",
                         fold_strategy=lambda x, y: FoldStrategies.list_of_labels(
