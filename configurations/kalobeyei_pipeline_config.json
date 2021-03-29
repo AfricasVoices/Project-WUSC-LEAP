@@ -143,9 +143,9 @@
     {"RapidProKey": "Lessons_Learnt (Text) - wusc_leap_s01_kalobeyei_programme_evaluation", "PipelineKey": "s01_lessons_learnt_raw", "IsActivationMessage": true},
     {"RapidProKey": "Lessons_Learnt (Time) - wusc_leap_s01_kalobeyei_programme_evaluation", "PipelineKey": "sent_on"},
     {"RapidProKey": "Lessons_Learnt (Run ID) - wusc_leap_s01_kalobeyei_programme_evaluation", "PipelineKey": "lessons_learnt_run_id"},
-    {"RapidProKey": "Impact Made (Text) - wusc_leap_s01_kalobeyei_programme_evaluation", "PipelineKey": "s01_impact_made_raw", "IsActivationMessage": true},
-    {"RapidProKey": "Impact Made (Time) - wusc_leap_s01_kalobeyei_programme_evaluation", "PipelineKey": "sent_on"},
-    {"RapidProKey": "Impact Made (Run ID) - wusc_leap_s01_kalobeyei_programme_evaluation", "PipelineKey": "impact_made_run_id"}
+    {"RapidProKey": "Impact_Made (Text) - wusc_leap_s01_kalobeyei_programme_evaluation", "PipelineKey": "s01_impact_made_raw", "IsActivationMessage": true},
+    {"RapidProKey": "Impact_Made (Time) - wusc_leap_s01_kalobeyei_programme_evaluation", "PipelineKey": "sent_on"},
+    {"RapidProKey": "Impact_Made (Run ID) - wusc_leap_s01_kalobeyei_programme_evaluation", "PipelineKey": "impact_made_run_id"}
   ],
 
   "PipelineName": "leap_kalobeyei_s01_pipeline",
