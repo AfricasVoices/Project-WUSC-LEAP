@@ -122,7 +122,7 @@ CodingPlan(raw_field="rqa_s01e05_raw",
 
     CodingPlan( raw_field="s01_lessons_learnt_raw",
                 dataset_name="s01_kalobeyei_lessons_learnt",
-                time_field="s01_lessons_learnt_time",
+                time_field="sent_on",
                 coda_filename="s01_kalobeyei_lessons_learnt.json",
                 coding_configurations=[
                     CodingConfiguration(
