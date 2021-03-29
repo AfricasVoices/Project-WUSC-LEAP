@@ -369,6 +369,5 @@ def get_demog_coding_plans(pipeline_name):
 def get_ws_correct_dataset_scheme(pipeline_name):
     return CodeSchemes.KAKUMA_WS_CORRECT_DATASET
 
-
 def get_follow_up_coding_plans(pipeline_name):
     return KALOBEYEI_S01_FOLLOW_UP_CODING_PLANS
