@@ -36,7 +36,7 @@ DATASETS=(
     "WUSC-LEAP_kalobeyei_girls_empowerment"
 
     "WUSC-LEAP_kalobeyei_s01_lessons_learnt"
-    "s01_WUSC-LEAP_kalobeyei_impact_made"
+    "WUSC-LEAP_kalobeyei_s01_impact_made"
 )
 
 cd "$CODA_V2_ROOT/data_tools"
