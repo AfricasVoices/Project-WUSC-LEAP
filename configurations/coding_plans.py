@@ -140,7 +140,7 @@ CodingPlan(raw_field="rqa_s01e05_raw",
 
     CodingPlan( raw_field="s01_impact_made_raw",
                 dataset_name="s01_kalobeyei_impact_made",
-                time_field="s01_impact_made_time",
+                time_field="sent_on",
                 coda_filename="s01_kalobeyei_impact_made.json",
                 coding_configurations=[
                     CodingConfiguration(
