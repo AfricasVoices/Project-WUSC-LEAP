@@ -35,7 +35,7 @@ DATASETS=(
     "WUSC-LEAP_kalobeyei_currently_in_school"
     "WUSC-LEAP_kalobeyei_girls_empowerment"
 
-    "s01_WUSC-LEAP_kalobeyei_lessons_learnt"
+    "WUSC-LEAP_kalobeyei_s01_lessons_learnt"
     "s01_WUSC-LEAP_kalobeyei_impact_made"
 )
 
