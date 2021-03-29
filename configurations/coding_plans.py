@@ -121,7 +121,7 @@ CodingPlan(raw_field="rqa_s01e05_raw",
                        raw_field_fold_strategy=FoldStrategies.concatenate),
 
     CodingPlan( raw_field="s01_lessons_learnt_raw",
-                dataset_name="s01_kalobeyei_lessons_learnt",
+                dataset_name="s01_lessons_learnt",
                 time_field="sent_on",
                 coda_filename="WUSC-LEAP_kalobeyei_s01_lessons_learnt.json",
                 coding_configurations=[
