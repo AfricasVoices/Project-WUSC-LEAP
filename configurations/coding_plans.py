@@ -146,8 +146,7 @@ KAKUMA_DEMOG_CODING_PLANS = [
                        include_in_theme_distribution=Codes.TRUE
                    ),
                ],
-               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
-                   "kakuma location"),
+               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("kakuma location"),
                raw_field_fold_strategy=FoldStrategies.assert_equal),
 
     CodingPlan(raw_field="gender_raw",
@@ -247,8 +246,7 @@ KAKUMA_DEMOG_CODING_PLANS = [
                        include_in_theme_distribution=Codes.TRUE
                    )
                ],
-               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
-                   "leap kalobeyei participants engaging"),
+               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("leap kalobeyei participants engaging"),
                raw_field_fold_strategy=FoldStrategies.assert_equal),
 
     CodingPlan(raw_field="kalobeyei_targeted_group_parent_raw",
