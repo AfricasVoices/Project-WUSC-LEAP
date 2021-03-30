@@ -124,46 +124,46 @@ KALOBEYEI_S01_RQA_CODING_PLANS = [
                ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
                    "leap kalobeyei s01e05"),
                raw_field_fold_strategy=FoldStrategies.concatenate),
-  
-    CodingPlan( raw_field="s01_lessons_learnt_raw",
-                dataset_name="s01_lessons_learnt",
-                time_field="sent_on",
-                run_id_field="lessons_learnt_run_id",
-                coda_filename="WUSC-LEAP_kalobeyei_s01_lessons_learnt.json",
-                icr_filename="kalobeyei_s01_lessons_learnt.csv",
-                coding_configurations=[
-                    CodingConfiguration(
-                        coding_mode=CodingModes.MULTIPLE,
-                        code_scheme=CodeSchemes.S01_KALOBEYEI_LESSONS_LEARNT,
-                        coded_field="s01_lessons_learnt",
-                        analysis_file_key="s01_lessons_learnt_",
-                        fold_strategy=lambda x, y: FoldStrategies.list_of_labels(
-                            CodeSchemes.S01_KALOBEYEI_LESSONS_LEARNT, x, y)
-                    )
-                ],
-                ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
-                    "s01 leap kalobeyei lessons learnt"),
-                raw_field_fold_strategy=FoldStrategies.concatenate),
 
-    CodingPlan( raw_field="s01_impact_made_raw",
-                dataset_name="s01_impact_made",
-                time_field="sent_on",
-                run_id_field="impact_made_run_id",
-                coda_filename="WUSC-LEAP_kalobeyei_s01_impact_made.json",
-                icr_filename="kalobeyei_s01_impact_made.csv",
-                coding_configurations=[
-                    CodingConfiguration(
-                        coding_mode=CodingModes.MULTIPLE,
-                        code_scheme=CodeSchemes.S01_KALOBEYEI_IMPACT_MADE,
-                        coded_field="s01_impact_made",
-                        analysis_file_key="s01_impact_made_",
-                        fold_strategy=lambda x, y: FoldStrategies.list_of_labels(
+    CodingPlan(raw_field="s01_lessons_learnt_raw",
+               dataset_name="s01_lessons_learnt",
+               time_field="sent_on",
+               run_id_field="lessons_learnt_run_id",
+               coda_filename="WUSC-LEAP_kalobeyei_s01_lessons_learnt.json",
+               icr_filename="kalobeyei_s01_lessons_learnt.csv",
+               coding_configurations=[
+                   CodingConfiguration(
+                       coding_mode=CodingModes.MULTIPLE,
+                       code_scheme=CodeSchemes.S01_KALOBEYEI_LESSONS_LEARNT,
+                       coded_field="s01_lessons_learnt",
+                       analysis_file_key="s01_lessons_learnt_",
+                       fold_strategy=lambda x, y: FoldStrategies.list_of_labels(
+                            CodeSchemes.S01_KALOBEYEI_LESSONS_LEARNT, x, y)
+                   )
+               ],
+               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
+                   "s01 leap kalobeyei lessons learnt"),
+               raw_field_fold_strategy=FoldStrategies.concatenate),
+
+    CodingPlan(raw_field="s01_impact_made_raw",
+               dataset_name="s01_impact_made",
+               time_field="sent_on",
+               run_id_field="impact_made_run_id",
+               coda_filename="WUSC-LEAP_kalobeyei_s01_impact_made.json",
+               icr_filename="kalobeyei_s01_impact_made.csv",
+               coding_configurations=[
+                   CodingConfiguration(
+                       coding_mode=CodingModes.MULTIPLE,
+                       code_scheme=CodeSchemes.S01_KALOBEYEI_IMPACT_MADE,
+                       coded_field="s01_impact_made",
+                       analysis_file_key="s01_impact_made_",
+                       fold_strategy=lambda x, y: FoldStrategies.list_of_labels(
                             CodeSchemes.S01_KALOBEYEI_IMPACT_MADE, x, y)
-                    )
-                ],
-                ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
-                    "s01 leap kalobeyei impact made"),
-                raw_field_fold_strategy=FoldStrategies.concatenate)
+                   )
+               ],
+               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
+                   "s01 leap kalobeyei impact made"),
+               raw_field_fold_strategy=FoldStrategies.concatenate)
 ]
 
 def get_rqa_coding_plans(pipeline_name):
@@ -285,7 +285,8 @@ KAKUMA_DEMOG_CODING_PLANS = [
                        include_in_theme_distribution=Codes.TRUE
                    )
                ],
-               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("leap kalobeyei participants engaging"),
+               ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
+                   "leap kalobeyei participants engaging"),
                raw_field_fold_strategy=FoldStrategies.assert_equal),
 
     CodingPlan(raw_field="kalobeyei_targeted_group_parent_raw",
