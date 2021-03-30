@@ -127,7 +127,7 @@ KALOBEYEI_S01_RQA_CODING_PLANS = [
 
     CodingPlan(raw_field="kalobeyei_girls_empowerment_raw",
                dataset_name="kalobeyei_girls_empowerment",
-               time_field="kalobeyei_girls_empowerment_time",
+               time_field="sent_on",
                run_id_field="kalobeyei_girls_empowerment_run_id",
                coda_filename="WUSC-LEAP_kalobeyei_girls_empowerment.json",
                icr_filename="kalobeyei_girls_empowerment.csv",
