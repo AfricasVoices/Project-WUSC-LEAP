@@ -33,8 +33,8 @@
         "wusc_leap_s01e03_kalobeyei_activation",
         "wusc_leap_s01e04_kalobeyei_activation",
         "wusc_leap_s01e05_kalobeyei_activation",
-        "wusc_leap_s01_kalobeyei_programme_evaluation",
-        "wusc_leap_s01e03_kalobeyei_follow_up"
+        "wusc_leap_s01e03_kalobeyei_follow_up",
+        "wusc_leap_s01_kalobeyei_programme_evaluation"
       ],
       "SurveyFlowNames": [
         "wusc_leap_s01_kalobeyei_demogs"
