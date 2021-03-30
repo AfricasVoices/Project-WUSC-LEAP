@@ -12,6 +12,7 @@ def make_location_code(scheme, clean_value):
     else:
         return scheme.get_code_with_match_value(clean_value)
 
+
 def impute_age_category(user, data, age_configurations):
     # TODO: By accepting a list of age_configurations but then requiring that list to contain code schemes in a
     #       certain order, it looks like we're providing more flexibility than we actually do. We should change this
