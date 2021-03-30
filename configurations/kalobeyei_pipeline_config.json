@@ -33,11 +33,11 @@
         "wusc_leap_s01e03_kalobeyei_activation",
         "wusc_leap_s01e04_kalobeyei_activation",
         "wusc_leap_s01e05_kalobeyei_activation",
-        "wusc_leap_s01_kalobeyei_programme_evaluation"
+        "wusc_leap_s01_kalobeyei_programme_evaluation",
+        "wusc_leap_s01e03_kalobeyei_follow_up"
       ],
       "SurveyFlowNames": [
-        "wusc_leap_s01_kalobeyei_demogs",
-        "wusc_leap_s01e03_kalobeyei_follow_up"
+        "wusc_leap_s01_kalobeyei_demogs"
       ],
       "TestContactUUIDs": [
         "905aa170-fada-4380-b5b6-6837de5cbb04",
