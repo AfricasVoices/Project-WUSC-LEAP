@@ -83,6 +83,10 @@
     {"RapidProKey": "Rqa_S01E04 (Time) - wusc_leap_s01e04_kalobeyei_activation", "PipelineKey": "sent_on"},
     {"RapidProKey": "Rqa_S01E05 (Time) - wusc_leap_s01e05_kalobeyei_activation", "PipelineKey": "sent_on"},
 
+    {"RapidProKey": "Girls_Empowerment (Text) - wusc_leap_s01e03_kalobeyei_follow_up", "PipelineKey": "kalobeyei_girls_empowerment_raw", "IsActivationMessage": true},
+    {"RapidProKey": "Girls_Empowerment (Time) - wusc_leap_s01e03_kalobeyei_follow_up", "PipelineKey": "sent_on"},
+    {"RapidProKey": "Girls_Empowerment (Run ID) - wusc_leap_s01e03_kalobeyei_follow_up", "PipelineKey": "kalobeyei_girls_empowerment_run_id"},
+
     {"RapidProKey": "Lessons_Learnt (Text) - wusc_leap_s01_kalobeyei_programme_evaluation", "PipelineKey": "s01_lessons_learnt_raw", "IsActivationMessage": true},
     {"RapidProKey": "Lessons_Learnt (Time) - wusc_leap_s01_kalobeyei_programme_evaluation", "PipelineKey": "sent_on"},
     {"RapidProKey": "Lessons_Learnt (Run ID) - wusc_leap_s01_kalobeyei_programme_evaluation", "PipelineKey": "lessons_learnt_run_id"},
