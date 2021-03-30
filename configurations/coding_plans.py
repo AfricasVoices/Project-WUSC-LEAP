@@ -182,7 +182,6 @@ KAKUMA_DEMOG_CODING_PLANS = [
                        coded_field="location_coded",
                        analysis_file_key="location",
                        fold_strategy=FoldStrategies.assert_label_ids_equal,
-                       include_in_theme_distribution=Codes.TRUE
                    ),
                ],
                ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value("kakuma location"),
@@ -200,7 +199,6 @@ KAKUMA_DEMOG_CODING_PLANS = [
                        coded_field="gender_coded",
                        analysis_file_key="gender",
                        fold_strategy=FoldStrategies.assert_label_ids_equal,
-                       include_in_theme_distribution=Codes.TRUE
                    )
                ],
                ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
@@ -219,7 +217,7 @@ KAKUMA_DEMOG_CODING_PLANS = [
                        coded_field="age_coded",
                        analysis_file_key="age",
                        fold_strategy=FoldStrategies.assert_label_ids_equal,
-                       include_in_theme_distribution=Codes.FALSE
+                       include_in_theme_distribution=False
                    ),
                    CodingConfiguration(
                        coding_mode=CodingModes.SINGLE,
@@ -227,7 +225,6 @@ KAKUMA_DEMOG_CODING_PLANS = [
                        coded_field="age_category_coded",
                        analysis_file_key="age_category",
                        fold_strategy=FoldStrategies.assert_label_ids_equal,
-                       include_in_theme_distribution=Codes.TRUE
                    )
                ],
                code_imputation_function=code_imputation_functions.impute_age_category,
@@ -246,7 +243,6 @@ KAKUMA_DEMOG_CODING_PLANS = [
                        coded_field="household_language_coded",
                        analysis_file_key="household_language",
                        fold_strategy=FoldStrategies.assert_label_ids_equal,
-                       include_in_theme_distribution=Codes.TRUE
                    )
                ],
                ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
@@ -264,7 +260,6 @@ KAKUMA_DEMOG_CODING_PLANS = [
                        coded_field="nationality_coded",
                        analysis_file_key="nationality",
                        fold_strategy=FoldStrategies.assert_label_ids_equal,
-                       include_in_theme_distribution=Codes.TRUE
                    )
                ],
                ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
@@ -282,7 +277,6 @@ KAKUMA_DEMOG_CODING_PLANS = [
                        coded_field="kalobeyei_participants_engaging_coded",
                        analysis_file_key="kalobeyei_participants_engaging",
                        fold_strategy=FoldStrategies.assert_label_ids_equal,
-                       include_in_theme_distribution=Codes.TRUE
                    )
                ],
                ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
@@ -300,7 +294,6 @@ KAKUMA_DEMOG_CODING_PLANS = [
                        coded_field="kalobeyei_targeted_group_parent_coded",
                        analysis_file_key="kalobeyei_targeted_group_parent",
                        fold_strategy=FoldStrategies.assert_label_ids_equal,
-                       include_in_theme_distribution=Codes.TRUE
                    )
                ],
                ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
@@ -318,7 +311,6 @@ KAKUMA_DEMOG_CODING_PLANS = [
                        coded_field="kalobeyei_child_gender_coded",
                        analysis_file_key="kalobeyei_child_gender",
                        fold_strategy=FoldStrategies.assert_label_ids_equal,
-                       include_in_theme_distribution=Codes.TRUE
                    )
                ],
                ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
@@ -336,7 +328,6 @@ KAKUMA_DEMOG_CODING_PLANS = [
                        coded_field="kalobeyei_consent_to_engage_child_coded",
                        analysis_file_key="kalobeyei_consent_to_engage_child",
                        fold_strategy=FoldStrategies.assert_label_ids_equal,
-                       include_in_theme_distribution=Codes.TRUE
                    )
                ],
                ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
@@ -351,12 +342,21 @@ KAKUMA_DEMOG_CODING_PLANS = [
                    CodingConfiguration(
                        coding_mode=CodingModes.SINGLE,
                        code_scheme=CodeSchemes.KALOBEYEI_AGE_OF_PARENT,
+                       cleaner=lambda text: clean_age_with_range_filter(text),
                        coded_field="kalobeyei_age_of_parent_coded",
                        analysis_file_key="kalobeyei_age_of_parent",
                        fold_strategy=FoldStrategies.assert_label_ids_equal,
-                       include_in_theme_distribution=Codes.TRUE
+                       include_in_theme_distribution=False
+                   ),
+                   CodingConfiguration(
+                       coding_mode=CodingModes.SINGLE,
+                       code_scheme=CodeSchemes.AGE_CATEGORY,
+                       coded_field="kalobeyei_age_of_parent_category_coded",
+                       analysis_file_key="kalobeyei_age_of_parent_category",
+                       fold_strategy=FoldStrategies.assert_label_ids_equal,
                    )
                ],
+               code_imputation_function=code_imputation_functions.impute_age_category,
                ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
                    "leap kalobeyei age of parent"),
                raw_field_fold_strategy=FoldStrategies.assert_equal),
@@ -372,7 +372,6 @@ KAKUMA_DEMOG_CODING_PLANS = [
                        coded_field="kalobeyei_currently_in_school_coded",
                        analysis_file_key="kalobeyei_currently_in_school",
                        fold_strategy=FoldStrategies.assert_label_ids_equal,
-                       include_in_theme_distribution=Codes.TRUE
                    )
                ],
                ws_code=CodeSchemes.KAKUMA_WS_CORRECT_DATASET.get_code_with_match_value(
