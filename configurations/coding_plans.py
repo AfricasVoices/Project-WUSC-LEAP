@@ -400,9 +400,7 @@ KAKUMA_DEMOG_CODING_PLANS = [
                raw_field_fold_strategy=FoldStrategies.assert_equal),
 ]
 
-KALOBEYEI_S01_FOLLOW_UP_CODING_PLANS = [
-
-]
+KALOBEYEI_S01_FOLLOW_UP_CODING_PLANS = []
 
 
 def get_demog_coding_plans(pipeline_name):
