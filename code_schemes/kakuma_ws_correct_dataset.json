@@ -189,6 +189,28 @@
         "MatchValues": [
           "leap kalobeyei girls empowerment"
         ]
+    },
+    {
+        "CodeID": "code-2949c002",
+        "CodeType": "Normal",
+        "DisplayText": "s01 leap kalobeyei impact made",
+        "StringValue": "s01_leap_kalobeyei_impact_made",
+        "NumericValue": 68,
+        "VisibleInCoda": true,
+        "MatchValues": [
+          "s01 leap kalobeyei impact made"
+        ]
+      },
+      {
+        "CodeID": "code-e34dcb97",
+        "CodeType": "Normal",
+        "DisplayText": "s01 leap kalobeyei lessons learnt",
+        "StringValue": "s01_leap_kalobeyei_lessons_learnt",
+        "NumericValue": 69,
+        "VisibleInCoda": true,
+        "MatchValues": [
+          "s01 leap kalobeyei lessons learnt"
+        ]
       },
     {
       "CodeID": "code-ba352823",

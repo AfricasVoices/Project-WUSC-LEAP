@@ -34,6 +34,9 @@ DATASETS=(
     "WUSC-LEAP_kalobeyei_age_of_parent"
     "WUSC-LEAP_kalobeyei_currently_in_school"
     "WUSC-LEAP_kalobeyei_girls_empowerment"
+
+    "WUSC-LEAP_kalobeyei_s01_lessons_learnt"
+    "WUSC-LEAP_kalobeyei_s01_impact_made"
 )
 
 cd "$CODA_V2_ROOT/data_tools"

@@ -90,7 +90,7 @@ class AnalysisFile(object):
         fold_strategies["uid"] = FoldStrategies.assert_equal
         fold_strategies[consent_withdrawn_key] = FoldStrategies.boolean_or
 
-        export_keys = ["uid", consent_withdrawn_key]
+        export_keys = ["uid", consent_withdrawn_key, "repeat_listening_group_participant"]
 
         # Export listening group bool keys in analysis files headers
         for plan in PipelineConfiguration.RQA_CODING_PLANS:
