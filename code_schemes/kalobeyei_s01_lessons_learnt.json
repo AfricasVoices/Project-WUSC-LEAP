@@ -4,6 +4,46 @@
     "Version": "0.0.0.1",
     "Codes": [
         {
+            "CodeID": "code-26b8390a",
+            "CodeType": "Normal",
+            "DisplayText": "importance of education",
+            "NumericValue": 1,
+            "StringValue": "importance_of_education",
+            "VisibleInCoda": true
+        },
+        {
+            "CodeID": "code-d126be91",
+            "CodeType": "Normal",
+            "DisplayText": "girls' rights",
+            "NumericValue": 2,
+            "StringValue": "girls_rights",
+            "VisibleInCoda": true
+        },
+        {
+            "CodeID": "code-340ae841",
+            "CodeType": "Normal",
+            "DisplayText": "self protection",
+            "NumericValue": 3,
+            "StringValue": "self_protection",
+            "VisibleInCoda": true
+        },
+        {
+            "CodeID": "code-d6cdae75",
+            "CodeType": "Normal",
+            "DisplayText": "learnt a lot/lot of change",
+            "NumericValue": 4,
+            "StringValue": "learnt_a_lot_or_lot_of_change",
+            "VisibleInCoda": true
+        },
+        {
+            "CodeID": "code-b47b5451",
+            "CodeType": "Normal",
+            "DisplayText": "other theme",
+            "NumericValue": 5,
+            "StringValue": "other_theme",
+            "VisibleInCoda": true
+        },
+        {
             "CodeID": "code-NA-f93d3eb7",
             "CodeType": "Control",
             "ControlCode": "NA",
