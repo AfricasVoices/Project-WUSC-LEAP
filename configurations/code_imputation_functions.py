@@ -22,7 +22,8 @@ def impute_age_category(user, data, age_configurations):
     age_category_cc = age_configurations[1]
 
     age_categories = {
-        (10, 17): "10 to 17",
+        (10, 14): "10 to 14",
+        (15, 17): "15 to 17",
         (18, 35): "18 to 35",
         (36, 54): "36 to 54",
         (55, 99): "55 to 99"
