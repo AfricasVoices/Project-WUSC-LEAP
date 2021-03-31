@@ -3,7 +3,54 @@
     "Name": "s01 kalobeyei impact made",
     "Version": "0.0.0.1",
     "Codes": [
-
+        {
+            "CodeID": "code-6955ef49",
+            "CodeType": "Normal",
+            "DisplayText": "promoted education",
+            "NumericValue": 1,
+            "StringValue": "promoted_education",
+            "VisibleInCoda": true
+        },
+        {
+            "CodeID": "code-0ceaa896",
+            "CodeType": "Normal",
+            "DisplayText": "equity",
+            "NumericValue": 2,
+            "StringValue": "equity",
+            "VisibleInCoda": true
+        },
+        {
+            "CodeID": "code-ca1b87dc",
+            "CodeType": "Normal",
+            "DisplayText": "general change",
+            "NumericValue": 3,
+            "StringValue": "general_change",
+            "VisibleInCoda": true
+        },
+        {
+            "CodeID": "code-f2acfd6b",
+            "CodeType": "Normal",
+            "DisplayText": "a lot of changes",
+            "NumericValue": 4,
+            "StringValue": "a_lot_of_changes",
+            "VisibleInCoda": true
+        },
+        {
+            "CodeID": "code-aca3b360",
+            "CodeType": "Normal",
+            "DisplayText": "no changes",
+            "NumericValue": 5,
+            "StringValue": "no_changes",
+            "VisibleInCoda": true
+        },
+        {
+            "CodeID": "code-1cabb8f0",
+            "CodeType": "Normal",
+            "DisplayText": "other theme",
+            "NumericValue": 6,
+            "StringValue": "other_theme",
+            "VisibleInCoda": true
+        },
         {
             "CodeID": "code-NA-f93d3eb7",
             "CodeType": "Control",
