@@ -34,7 +34,8 @@
         "wusc_leap_s01e04_kalobeyei_activation",
         "wusc_leap_s01e05_kalobeyei_activation",
         "wusc_leap_s01e03_kalobeyei_follow_up",
-        "wusc_leap_s01_kalobeyei_programme_evaluation"
+        "wusc_leap_s01_kalobeyei_programme_evaluation",
+        "wusc_leap_s01_kalobeyei_close_out_activation"
       ],
       "SurveyFlowNames": [
         "wusc_leap_s01_kalobeyei_demogs"
@@ -93,6 +94,10 @@
     {"RapidProKey": "Impact_Made (Text) - wusc_leap_s01_kalobeyei_programme_evaluation", "PipelineKey": "s01_impact_made_raw", "IsActivationMessage": true},
     {"RapidProKey": "Impact_Made (Time) - wusc_leap_s01_kalobeyei_programme_evaluation", "PipelineKey": "sent_on"},
     {"RapidProKey": "Impact_Made (Run ID) - wusc_leap_s01_kalobeyei_programme_evaluation", "PipelineKey": "impact_made_run_id"},
+
+    {"RapidProKey": "S01_Close_Out (Text) - wusc_leap_s01_kalobeyei_close_out_activation", "PipelineKey": "s01_close_out_raw", "IsActivationMessage": true},
+    {"RapidProKey": "S01_Close_Out (Time) - wusc_leap_s01_kalobeyei_close_out_activation", "PipelineKey": "sent_on"},
+    {"RapidProKey": "S01_Close_Out (Run ID) - wusc_leap_s01_kalobeyei_close_out_activation", "PipelineKey": "close_out_run_id"},
 
     {"RapidProKey": "Gender (Text) - wusc_keep_ii_kakuma_demogs", "PipelineKey": "gender_raw"},
     {"RapidProKey": "Gender (Time) - wusc_keep_ii_kakuma_demogs", "PipelineKey": "gender_time"},
