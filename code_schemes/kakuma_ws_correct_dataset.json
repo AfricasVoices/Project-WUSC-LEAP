@@ -212,6 +212,17 @@
           "s01 leap kalobeyei lessons learnt"
         ]
       },
+      {
+        "CodeID": "code-15bd5090",
+        "CodeType": "Normal",
+        "DisplayText": "s01 leap kalobeyei close out",
+        "StringValue": "s01_leap_kalobeyei_close_out",
+        "NumericValue": 70,
+        "VisibleInCoda": true,
+        "MatchValues": [
+          "s01 leap kalobeyei close out"
+        ]
+      },
     {
       "CodeID": "code-ba352823",
       "CodeType": "Normal",

@@ -33,5 +33,6 @@ class CodeSchemes(object):
     KALOBEYEI_GIRLS_EMPOWERMENT = _open_scheme("kalobeyei_girls_empowerment.json")
     S01_KALOBEYEI_LESSONS_LEARNT = _open_scheme("kalobeyei_s01_lessons_learnt.json")
     S01_KALOBEYEI_IMPACT_MADE = _open_scheme("kalobeyei_s01_impact_made.json")
+    S01_KALOBEYEI_CLOSE_OUT = _open_scheme("kalobeyei_s01_close_out.json")
 
     KAKUMA_WS_CORRECT_DATASET = _open_scheme("kakuma_ws_correct_dataset.json")
